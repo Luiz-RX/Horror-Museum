@@ -22,11 +22,21 @@ public class MeleeEnemy : EnemyBase
 
     private void Update()
     {
-        if (move)
+        if (navMesh.velocity == Vector3.zero)
         {
-            MoveToTarget();
+            animator.SetBool("Walking", false);
         } else
         {
+            animator.SetBool("Walking", true);
+        }
+        float distanceToPlayer = Vector3.Distance(player.position, this.transform.position);
+        if (move && distanceToPlayer > attackRange)
+        {
+            MoveToTarget();
+        } else if (move && distanceToPlayer < attackRange)
+        {
+            Attack();
+        }else {
             if(this.transform.position != initialPos)
             {
                 navMesh.speed = 2;
@@ -39,6 +49,17 @@ public class MeleeEnemy : EnemyBase
     {
         navMesh.speed = speed;
         navMesh.SetDestination(player.position);
+    }
+
+    void Attack()
+    {
+        navMesh.speed = 0;
+        animator.SetTrigger("Attack");
+    }
+
+    void ResetSpeed()
+    {
+        navMesh.speed = speed;
     }
 
     

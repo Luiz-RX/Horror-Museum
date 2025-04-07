@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +7,7 @@ public class MeleeEnemy : EnemyBase
     private NavMeshAgent navMesh;
     private Animator animator;
     private Transform player;
+    bool isAttacking;
 
     private Vector3 initialPos;
 
@@ -31,12 +33,13 @@ public class MeleeEnemy : EnemyBase
         }
 
         float distanceToPlayer = Vector3.Distance(player.position, this.transform.position);
-        if (move && distanceToPlayer > attackRange)
+        if (move && distanceToPlayer > attackRange && !isAttacking)
         {
             MoveToTarget();
-        } else if (move && distanceToPlayer < attackRange)
+            
+        } else if (move && distanceToPlayer < attackRange && !isAttacking)
         {
-            Attack();
+            StartCoroutine(Attack());
         }else {
             if(this.transform.position != initialPos)
             {
@@ -52,10 +55,13 @@ public class MeleeEnemy : EnemyBase
         navMesh.SetDestination(player.position);
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
         navMesh.speed = 0;
         animator.SetTrigger("Attack");
+        isAttacking = true;
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        isAttacking = false;
     }
 
     void ResetSpeed()

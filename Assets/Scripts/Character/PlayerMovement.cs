@@ -6,11 +6,12 @@ public class PlayerMovement : MonoBehaviour
     public float backwardSpeed = 1.75f; // Velocidad al retroceder (más lenta)
     public float rotationSpeed = 150f; // Velocidad de rotación en grados por segundo
     private CharacterController controller;
+    private Animator animator;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-
+        animator = GetComponent<Animator>();
         //Provisional lock camera
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // Detectar entrada de movimiento (W/S)
         float moveDirection = Input.GetAxis("Vertical"); // W (1) / S (-1)
+
+        animator.SetFloat("MoveY", moveDirection);
 
         // Determinar velocidad en función de la dirección
         float currentSpeed = (moveDirection > 0) ? forwardSpeed : backwardSpeed;

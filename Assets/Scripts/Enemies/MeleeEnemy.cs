@@ -29,6 +29,7 @@ public class MeleeEnemy : EnemyBase
         {
             animator.SetBool("Walking", true);
         }
+
         float distanceToPlayer = Vector3.Distance(player.position, this.transform.position);
         if (move && distanceToPlayer > attackRange)
         {

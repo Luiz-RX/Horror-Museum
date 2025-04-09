@@ -40,7 +40,7 @@ public class MeleeEnemy : EnemyBase
         } else if (move && distanceToPlayer < attackRange && !isAttacking)
         {
             StartCoroutine(Attack());
-        }else {
+        }else if (!move) {
             if(this.transform.position != initialPos)
             {
                 navMesh.speed = 2;

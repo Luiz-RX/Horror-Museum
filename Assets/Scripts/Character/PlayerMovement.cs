@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 150f; // Velocidad de rotación en grados por segundo
     private CharacterController controller;
     private Animator animator;
+    private PlayerShoot playerShoot;
 
     void Start()
     {
@@ -15,10 +16,12 @@ public class PlayerMovement : MonoBehaviour
         //Provisional lock camera
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        playerShoot = GetComponent<PlayerShoot>();
     }
 
     void Update()
     {
+        if (playerShoot != null && playerShoot.isAiming) return;
         // Detectar entrada de movimiento (W/S)
         float moveDirection = Input.GetAxis("Vertical"); // W (1) / S (-1)
 

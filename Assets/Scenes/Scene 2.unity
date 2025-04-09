@@ -1481,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8340228814243238356, guid: eb7c54b2f1d031b48989ea826557f844, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8340228814243238356, guid: eb7c54b2f1d031b48989ea826557f844, type: 3}
       propertyPath: crosshairUI
@@ -1491,6 +1491,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 15111160}
+    - target: {fileID: 8340228814243238356, guid: eb7c54b2f1d031b48989ea826557f844, type: 3}
+      propertyPath: crosshairTransform
+      value: 
+      objectReference: {fileID: 1752326741}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

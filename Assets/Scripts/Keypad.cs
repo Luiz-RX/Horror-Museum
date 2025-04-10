@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using System.Collections;
 
 public class Keypad : MonoBehaviour
 {
@@ -10,6 +10,9 @@ public class Keypad : MonoBehaviour
     public static int codeNum2;
     public static int codeNum3;
     public static int codeNum4;
+
+    bool canClear;
+    public Animator doorAnim;
     void Start()
     {
         codeNum1 = Random.Range(0, 10);
@@ -34,15 +37,33 @@ public class Keypad : MonoBehaviour
         {
             //Abrir Puerta
             Debug.Log("SI");
+            enteredNumbers.color = Color.green;
+            doorAnim.SetTrigger("Open");
+            canClear = false;
         } else
         {
+            StartCoroutine(WrongKeycode());
             Debug.Log("Error");
         }
     }
 
     public void Clear()
     {
-        enteredNumbers.text = "";
+        if (canClear)
+        {
+            enteredNumbers.text = "";
+        }
+    }
+
+    IEnumerator WrongKeycode()
+    {
+        canClear = false;
+        enteredNumbers.color = Color.red;
+        enteredNumbers.text = "ERROR";
+        yield return new WaitForSeconds(1);
+        canClear = true;
+        Clear();
+        enteredNumbers.color= Color.white;
     }
 
     // Update is called once per frame

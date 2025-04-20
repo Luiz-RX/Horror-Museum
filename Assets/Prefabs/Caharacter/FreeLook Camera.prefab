@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2738873998109814672}
   - component: {fileID: 1875849783058353595}
   - component: {fileID: 6261076373846910377}
+  - component: {fileID: 2355135868631396940}
   m_Layer: 0
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0, z: 0}
+  TargetOffset: {x: 0, y: 8.11, z: 0}
   TrackerSettings:
     BindingMode: 4
     PositionDamping: {x: 1, y: 1, z: 1}
@@ -237,3 +238,18 @@ MonoBehaviour:
       Driver:
         AccelTime: 0
         DecelTime: 0
+--- !u!114 &2355135868631396940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248256133326501490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: {x: 0, y: 0.72, z: 8.41}
+  ApplyAfter: 1
+  PreserveComposition: 0

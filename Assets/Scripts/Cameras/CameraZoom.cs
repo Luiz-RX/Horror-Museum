@@ -34,12 +34,19 @@ public class CameraZoom : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canInteract = true;
+        if (other.tag == "Player")
+        {
+            canInteract = true;
+        }
+       
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canInteract = false;
+        if (other.tag == "Player")
+        {
+            canInteract = false;
+        }
     }
 
     void ChangeCam() 

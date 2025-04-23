@@ -15,21 +15,24 @@ public class ItemInteract : MonoBehaviour
 
     void Update()
     {
+
         if (canInteract)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //InteractItem
-                if(itemViewer.itemSelected == false)
+                if (itemViewer.itemSelected == false)
                 {
                     itemViewer.inspectItem(item);
-                } else
+                }
+                else
                 {
                     itemViewer.stopInspectingItem();
                 }
-                
+
             }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,6 +51,7 @@ public class ItemInteract : MonoBehaviour
         {
             Debug.Log("Can Not Interact");
             canInteract = false;
+            itemViewer.stopInspectingItem();
         }
     }
 }

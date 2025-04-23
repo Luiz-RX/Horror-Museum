@@ -45,6 +45,11 @@ public class CameraZoom : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            if (activeCam == 2) 
+            {
+                ChangeCam();
+            }
+            
             canInteract = false;
         }
     }

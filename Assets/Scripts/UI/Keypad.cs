@@ -5,21 +5,26 @@ using System.Collections;
 public class Keypad : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI enteredNumbers;
-    private string answer;
+    string answer;
+    public string answerToSend;
+    bool isAnswerSet;
     public static int codeNum1;
     public static int codeNum2;
     public static int codeNum3;
     public static int codeNum4;
+    
 
     bool canClear;
     public Animator doorAnim;
     void Start()
     {
+        
         codeNum1 = Random.Range(0, 10);
         codeNum2 = Random.Range(0, 10);
         codeNum3 = Random.Range(0, 10);
         codeNum4 = Random.Range(0, 10);
         answer = "" +codeNum1 + codeNum2 +codeNum3 +codeNum4;
+        
         Debug.Log(answer);
     }
 
@@ -66,9 +71,14 @@ public class Keypad : MonoBehaviour
         enteredNumbers.color= Color.white;
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
-        
+        if(!isAnswerSet)
+        {
+            answerToSend = answer;
+        }
     }
 }

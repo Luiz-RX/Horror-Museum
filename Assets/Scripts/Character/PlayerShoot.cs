@@ -10,19 +10,28 @@ public class PlayerShoot : MonoBehaviour
     public Transform firePoint; // Lugar desde donde dispara
     public float bulletSpeed = 20f;
 
+    Animator anim;
+
     public bool isAiming { get; private set; }
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
         // Activar modo de apuntado con Click Derecho (Botón Secundario)
         if (Input.GetMouseButtonDown(1)) // Click derecho
         {
+            anim.SetBool("Aim", true);
             isAiming = true;
             crosshairUI.SetActive(true); // Mostrar crosshair
             //animator.SetBool("IsAiming", true); // Activar animación de apuntado
         }
         else if (Input.GetMouseButtonUp(1))
         {
+            anim.SetBool("Aim", false);
             isAiming = false;
             crosshairUI.SetActive(false); // Ocultar crosshair
             //animator.SetBool("IsAiming", false); // Volver a animación normal

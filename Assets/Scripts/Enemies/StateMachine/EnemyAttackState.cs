@@ -3,41 +3,34 @@ using UnityEngine.AI;
 
 public class EnemyAttackState : StateMachineBehaviour
 {
-
     NavMeshAgent agent;
     Transform player;
-   
 
     public float stopAttackingDistance = 2.5f;
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = animator.GetComponent<NavMeshAgent>();
-        
     }
-
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        LookAtPlayer();
+        float distance = Vector3.Distance(animator.transform.position, player.position);
 
-        float distanceFromPlayer = Vector3.Distance(player.position, animator.transform.position);
-
-        if (distanceFromPlayer > stopAttackingDistance)
+        if (distance > stopAttackingDistance)
         {
             animator.SetBool("isAttacking", false);
         }
+
+        LookAtPlayer();
     }
 
-   
-
-    private void LookAtPlayer() 
+    private void LookAtPlayer()
     {
-    Vector3 direction = player.position - agent.transform.position;
-        agent.transform.rotation = Quaternion.LookRotation(direction);
-
-        var yRotation = agent.transform.eulerAngles.y;
-        agent.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        Vector3 direction = player.position - agent.transform.position;
+        direction.y = 0;
+        if (direction != Vector3.zero)
+            agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, Quaternion.LookRotation(direction), 0.2f);
     }
 }

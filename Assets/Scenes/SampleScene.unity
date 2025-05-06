@@ -8443,14 +8443,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersonajeMasculinoTexturizado
       objectReference: {fileID: 0}
-    - target: {fileID: 7885035027029587636, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7885035027029587636, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

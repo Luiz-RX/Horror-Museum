@@ -11,13 +11,13 @@ public class PlayerShoot : MonoBehaviour
     //public Animator animator; // Referencia al Animator
     public GameObject bulletPrefab;
     public Transform firePoint; // Lugar desde donde dispara
-    public float bulletSpeed = 20f;
+    public float bulletSpeed = 300f;
     public Transform rayInicialPos;
     public Rig rig;
 
     private Vector3 rayDirection = Vector3.forward;
     
-    Ray ray;
+    
     [SerializeField] LayerMask aimMask;
     [SerializeField] Transform aimPos;
     public GameObject aimLine;
@@ -79,7 +79,7 @@ public class PlayerShoot : MonoBehaviour
         }
         if (!isAiming)
         {
-            ray = new Ray(rayInicialPos.transform.position, transform.forward);
+            Ray ray = new Ray(rayInicialPos.transform.position, transform.forward);
             rayDirection = Vector3.forward;
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
             {
@@ -114,10 +114,11 @@ public class PlayerShoot : MonoBehaviour
         //    targetPoint = ray.GetPoint(100f);
         //}
 
-        //Vector3 shootDirection = (targetPoint - firePoint.position).normalized;
+        Vector3 shootDirection = (aimPos.position - firePoint.position).normalized;
 
-        //GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
-        //Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        //rb.linearVelocity = shootDirection * bulletSpeed;
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.linearVelocity = shootDirection * bulletSpeed;
+        Destroy(bullet, 2f);
     }
 }

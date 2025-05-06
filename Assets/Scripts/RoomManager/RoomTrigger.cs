@@ -17,6 +17,15 @@ public class RoomTrigger : MonoBehaviour
             FadeTransition.Instance.StartFade(() => {
                 RoomManager.Instance.EnterRoom(roomName);
             });
+            EnemyManager.Instance.NotifyRoomChange(roomName, true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            EnemyManager.Instance.NotifyRoomChange(roomName, false);
         }
     }
 }

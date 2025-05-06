@@ -36,13 +36,13 @@ public class EnemyAI : MonoBehaviour
         if (distance <= attackRange)
         {
             agent.isStopped = true;
-            animator.Play("Attack"); 
+            animator.SetTrigger("Attacking");
         }
         else
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
-            animator.Play("Walk"); 
+            animator.SetBool("IsWalking", true);
         }
     }
 
@@ -53,12 +53,12 @@ public class EnemyAI : MonoBehaviour
         {
             agent.isStopped = false;
             agent.SetDestination(startPosition);
-            animator.Play("Walk");
+            animator.SetBool("IsWalking", true);
         }
         else
         {
             agent.isStopped = true;
-            animator.Play("Idle");
+            animator.SetBool("IsWalking", false);
         }
     }
 

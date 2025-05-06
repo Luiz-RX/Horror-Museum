@@ -1,18 +1,26 @@
-﻿using UnityEngine;
+﻿using System.IO.MemoryMappedFiles;
+using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.Animations.Rigging;
 
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject crosshairUI; // Referencia al crosshair en la UI
     public RectTransform crosshairTransform;
-    public float crosshairMoveSpeed = 300f;
+    public float crosshairMoveSpeed = 0.1f;
     //public Animator animator; // Referencia al Animator
     public GameObject bulletPrefab;
     public Transform firePoint; // Lugar desde donde dispara
     public float bulletSpeed = 20f;
+    public Transform rayInicialPos;
+    public Rig rig;
 
+    private Vector3 rayDirection = Vector3.forward;
+    
     Ray ray;
     [SerializeField] LayerMask aimMask;
     [SerializeField] Transform aimPos;
+    public GameObject aimLine;
 
     Animator anim;
 
@@ -25,16 +33,14 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask)) 
-        {
-            aimPos.position = hit.point;
-        }
+        
         // Activar modo de apuntado con Click Derecho (Botón Secundario)
         if (Input.GetMouseButtonDown(1)) // Click derecho
         {
             anim.SetBool("Aim", true);
             isAiming = true;
-            crosshairUI.SetActive(true); // Mostrar crosshair
+            
+            // Mostrar crosshair
             //animator.SetBool("IsAiming", true); // Activar animación de apuntado
         }
         else if (Input.GetMouseButtonUp(1))
@@ -42,19 +48,48 @@ public class PlayerShoot : MonoBehaviour
             anim.SetBool("Aim", false);
             isAiming = false;
             crosshairUI.SetActive(false); // Ocultar crosshair
+            aimLine.SetActive(false);
             //animator.SetBool("IsAiming", false); // Volver a animación normal
         }
 
         if (isAiming)
         {
-            Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            if (rig.weight < 0.99)
+            {
+                rig.weight = Mathf.Lerp(rig.weight, 1.0f, 0.05f);
+            } else
+            {
+                crosshairUI.SetActive(true);
+                aimLine.SetActive(true);
+            }
+
             Vector2 pos = Camera.main.ScreenToWorldPoint(aimPos.transform.position);
-            //crosshairTransform.anchoredPosition += input * crosshairMoveSpeed * Time.deltaTime;
+
+            //Vector3 input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0 ).normalized;
+            //rayDirection += input * crosshairMoveSpeed * Time.deltaTime;
+            //rayDirection.Normalize();
+            //ray = new Ray(rayInicialPos.transform.position, (rayDirection));
+            //if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
+            //{
+            //    aimPos.position = hit.point;
+            //}
+            
+            //aimPos.transform.position += input * crosshairMoveSpeed * Time.deltaTime;
             crosshairTransform.anchoredPosition = pos;
         }
         if (!isAiming)
         {
-            ray = new Ray(transform.position, transform.forward);
+            ray = new Ray(rayInicialPos.transform.position, transform.forward);
+            rayDirection = Vector3.forward;
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
+            {
+                aimPos.position = hit.point;
+            }
+            if (rig.weight > 0.001)
+            {
+                rig.weight = Mathf.Lerp(rig.weight, 0f, 0.05f);
+            }
+           
         }
         // Disparar con Click Izquierdo
         if (isAiming && Input.GetMouseButtonDown(0))

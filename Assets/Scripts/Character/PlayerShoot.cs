@@ -10,6 +10,10 @@ public class PlayerShoot : MonoBehaviour
     public Transform firePoint; // Lugar desde donde dispara
     public float bulletSpeed = 20f;
 
+    Ray ray;
+    [SerializeField] LayerMask aimMask;
+    [SerializeField] Transform aimPos;
+
     Animator anim;
 
     public bool isAiming { get; private set; }
@@ -21,6 +25,10 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask)) 
+        {
+            aimPos.position = hit.point;
+        }
         // Activar modo de apuntado con Click Derecho (Botón Secundario)
         if (Input.GetMouseButtonDown(1)) // Click derecho
         {
@@ -40,7 +48,13 @@ public class PlayerShoot : MonoBehaviour
         if (isAiming)
         {
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            crosshairTransform.anchoredPosition += input * crosshairMoveSpeed * Time.deltaTime;
+            Vector2 pos = Camera.main.ScreenToWorldPoint(aimPos.transform.position);
+            //crosshairTransform.anchoredPosition += input * crosshairMoveSpeed * Time.deltaTime;
+            crosshairTransform.anchoredPosition = pos;
+        }
+        if (!isAiming)
+        {
+            ray = new Ray(transform.position, transform.forward);
         }
         // Disparar con Click Izquierdo
         if (isAiming && Input.GetMouseButtonDown(0))
@@ -52,23 +66,23 @@ public class PlayerShoot : MonoBehaviour
     void Shoot()
     {
         // Raycast desde la cámara hacia el punto del crosshair en pantalla
-        Vector3 crosshairScreenPos = crosshairTransform.position;
-        Ray ray = Camera.main.ScreenPointToRay(crosshairScreenPos);
+        //Vector3 crosshairScreenPos = crosshairTransform.position;
+        //Ray ray = Camera.main.ScreenPointToRay(crosshairScreenPos);
 
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            targetPoint = hit.point;
-        }
-        else
-        {
-            targetPoint = ray.GetPoint(100f);
-        }
+        //Vector3 targetPoint;
+        //if (Physics.Raycast(ray, out RaycastHit hit))
+        //{
+        //    targetPoint = hit.point;
+        //}
+        //else
+        //{
+        //    targetPoint = ray.GetPoint(100f);
+        //}
 
-        Vector3 shootDirection = (targetPoint - firePoint.position).normalized;
+        //Vector3 shootDirection = (targetPoint - firePoint.position).normalized;
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.linearVelocity = shootDirection * bulletSpeed;
+        //GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
+        //Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        //rb.linearVelocity = shootDirection * bulletSpeed;
     }
 }

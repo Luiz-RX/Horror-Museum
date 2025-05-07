@@ -63,19 +63,7 @@ public class PlayerShoot : MonoBehaviour
                 aimLine.SetActive(true);
             }
 
-            Vector2 pos = Camera.main.ScreenToWorldPoint(aimPos.transform.position);
-
-            //Vector3 input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0 ).normalized;
-            //rayDirection += input * crosshairMoveSpeed * Time.deltaTime;
-            //rayDirection.Normalize();
-            //ray = new Ray(rayInicialPos.transform.position, (rayDirection));
-            //if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
-            //{
-            //    aimPos.position = hit.point;
-            //}
-            
-            //aimPos.transform.position += input * crosshairMoveSpeed * Time.deltaTime;
-            crosshairTransform.anchoredPosition = pos;
+            AimingShoot();
         }
         if (!isAiming)
         {
@@ -120,5 +108,21 @@ public class PlayerShoot : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.linearVelocity = shootDirection * bulletSpeed;
         Destroy(bullet, 2f);
+    }
+    void AimingShoot()
+    {
+        //Vector2 pos = Camera.main.ScreenToWorldPoint(aimPos.transform.position);
+
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+        rayDirection += input * crosshairMoveSpeed * Time.deltaTime;
+        rayDirection.Normalize();
+        Ray ray = new Ray(rayInicialPos.transform.position, (rayDirection));
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
+        {
+            aimPos.position = hit.point;
+        }
+
+        //aimPos.transform.position += input * crosshairMoveSpeed * Time.deltaTime;
+        //crosshairTransform.anchoredPosition = pos;
     }
 }

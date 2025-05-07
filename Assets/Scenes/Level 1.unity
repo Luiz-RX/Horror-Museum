@@ -3785,6 +3785,10 @@ PrefabInstance:
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 726507908}
+    - target: {fileID: 2407900823420407068, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3394420936525920939, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 

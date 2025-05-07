@@ -15,7 +15,10 @@ public class PlayerShoot : MonoBehaviour
     public Transform rayInicialPos;
     public Rig rig;
 
+    Vector3 lookDirection;
+
     private Vector3 rayDirection = Vector3.forward;
+    
     
     
     [SerializeField] LayerMask aimMask;
@@ -63,7 +66,50 @@ public class PlayerShoot : MonoBehaviour
                 aimLine.SetActive(true);
             }
 
-            AimingShoot();
+            float hInput = Input.GetAxis("Vertical");
+            float vInput = Input.GetAxis("Horizontal");
+
+            if(hInput != 0)
+            {
+                if(hInput >0)
+                {
+                    Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
+                    Vector3 rotatedDirection = rotation * transform.forward;
+                    lookDirection = rotatedDirection;
+                    Debug.Log("Rotate right");
+                } else
+                {
+                    Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
+                    Vector3 rotatedDirection = rotation * transform.forward;
+                    lookDirection = rotatedDirection;
+                    Debug.Log("Rotate left");
+                }
+                
+            } else if (vInput != 0)
+            {
+                if (vInput > 0)
+                {
+                    Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
+                    Vector3 rotatedDirection = rotation * transform.forward;
+                    lookDirection = rotatedDirection;
+                }
+                else
+                {
+                    Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
+                    Vector3 rotatedDirection = rotation * transform.forward;
+                    lookDirection = rotatedDirection;
+                }
+            }
+            
+
+            Ray ray = new Ray(rayInicialPos.transform.position, lookDirection);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
+            {
+                aimPos.position = hit.point;
+            }
+
+            //AimingShoot();
         }
         if (!isAiming)
         {

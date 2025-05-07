@@ -16,6 +16,7 @@ public class PlayerShoot : MonoBehaviour
     public Rig rig;
 
     Vector3 lookDirection;
+    Vector3 rotatedDirection;
 
     private Vector3 rayDirection = Vector3.forward;
     
@@ -74,14 +75,14 @@ public class PlayerShoot : MonoBehaviour
                 if(hInput >0)
                 {
                     Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
-                    Vector3 rotatedDirection = rotation * transform.forward;
-                    lookDirection = rotatedDirection;
+                     rotatedDirection = rotation * transform.forward;
+                    //lookDirection = rotatedDirection;
                     Debug.Log("Rotate right");
                 } else
                 {
                     Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
-                    Vector3 rotatedDirection = rotation * transform.forward;
-                    lookDirection = rotatedDirection;
+                     rotatedDirection = rotation * transform.forward;
+                    //lookDirection = rotatedDirection;
                     Debug.Log("Rotate left");
                 }
                 
@@ -90,18 +91,18 @@ public class PlayerShoot : MonoBehaviour
                 if (vInput > 0)
                 {
                     Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
-                    Vector3 rotatedDirection = rotation * transform.forward;
-                    lookDirection = rotatedDirection;
+                     rotatedDirection = rotation * transform.forward;
+                    //lookDirection = rotatedDirection;
                 }
                 else
                 {
                     Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
-                    Vector3 rotatedDirection = rotation * transform.forward;
-                    lookDirection = rotatedDirection;
+                     rotatedDirection = rotation * transform.forward;
+                    //lookDirection = rotatedDirection;
                 }
             }
-            
 
+            lookDirection = rotatedDirection;
             Ray ray = new Ray(rayInicialPos.transform.position, lookDirection);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
@@ -114,7 +115,8 @@ public class PlayerShoot : MonoBehaviour
         if (!isAiming)
         {
             Ray ray = new Ray(rayInicialPos.transform.position, transform.forward);
-            rayDirection = Vector3.forward;
+            //rayDirection = Vector3.forward;
+            //lookDirection = new Vector3(0, 0, transform.position.z);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
             {
                 aimPos.position = hit.point;

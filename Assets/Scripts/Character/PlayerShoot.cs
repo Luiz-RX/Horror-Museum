@@ -13,6 +13,7 @@ public class PlayerShoot : MonoBehaviour
     public Transform firePoint; // Lugar desde donde dispara
     public float bulletSpeed = 300f;
     public Transform rayInicialPos;
+    [SerializeField] float rotateSpeed = 15f;
     public Rig rig;
 
     Vector3 lookDirection;
@@ -49,6 +50,7 @@ public class PlayerShoot : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(1))
         {
+            
             anim.SetBool("Aim", false);
             isAiming = false;
             crosshairUI.SetActive(false); // Ocultar crosshair
@@ -67,43 +69,63 @@ public class PlayerShoot : MonoBehaviour
                 aimLine.SetActive(true);
             }
 
-            float hInput = Input.GetAxis("Vertical");
-            float vInput = Input.GetAxis("Horizontal");
 
-            if(hInput != 0)
-            {
-                if(hInput >0)
-                {
-                    Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
-                     rotatedDirection = rotation * transform.forward;
-                    //lookDirection = rotatedDirection;
-                    Debug.Log("Rotate right");
-                } else
-                {
-                    Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
-                     rotatedDirection = rotation * transform.forward;
-                    //lookDirection = rotatedDirection;
-                    Debug.Log("Rotate left");
-                }
-                
-            } else if (vInput != 0)
-            {
-                if (vInput > 0)
-                {
-                    Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
-                     rotatedDirection = rotation * transform.forward;
-                    //lookDirection = rotatedDirection;
-                }
-                else
-                {
-                    Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
-                     rotatedDirection = rotation * transform.forward;
-                    //lookDirection = rotatedDirection;
-                }
-            }
+            float hInput = Input.GetAxis("Horizontal");
+            float vInput = Input.GetAxis("Vertical");
 
-            lookDirection = rotatedDirection;
-            Ray ray = new Ray(rayInicialPos.transform.position, lookDirection);
+            //if (hInput > 0.1 && rayInicialPos.transform.rotation.eulerAngles.y < 45) 
+            //{
+            //    rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
+            //} else if (hInput < -0.1 && rayInicialPos.transform.rotation.eulerAngles.y > -45)
+            //{
+            //    rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
+            //}
+
+            //if (rayInicialPos.transform.rotation.eulerAngles.x <= 45 && rayInicialPos.transform.rotation.eulerAngles.x >= -45)
+            //{
+            //    rayInicialPos.transform.Rotate(-vInput * rotateSpeed * Time.deltaTime, 0, 0);
+            //}
+
+            rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
+            rayInicialPos.transform.Rotate(-vInput * rotateSpeed * Time.deltaTime, 0, 0);
+
+            //float hInput = Input.GetAxis("Vertical");
+            //float vInput = Input.GetAxis("Horizontal");
+
+            //if(hInput != 0)
+            //{
+            //    if(hInput >0)
+            //    {
+            //        Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
+            //         rotatedDirection = rotation * transform.forward;
+            //        //lookDirection = rotatedDirection;
+            //        Debug.Log("Rotate right");
+            //    } else
+            //    {
+            //        Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
+            //         rotatedDirection = rotation * transform.forward;
+            //        //lookDirection = rotatedDirection;
+            //        Debug.Log("Rotate left");
+            //    }
+
+            //} else if (vInput != 0)
+            //{
+            //    if (vInput > 0)
+            //    {
+            //        Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
+            //         rotatedDirection = rotation * transform.forward;
+            //        //lookDirection = rotatedDirection;
+            //    }
+            //    else
+            //    {
+            //        Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
+            //         rotatedDirection = rotation * transform.forward;
+            //        //lookDirection = rotatedDirection;
+            //    }
+            //}
+
+            //lookDirection = rotatedDirection;
+            Ray ray = new Ray(rayInicialPos.transform.position, rayInicialPos.transform.forward);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
             {
@@ -114,7 +136,28 @@ public class PlayerShoot : MonoBehaviour
         }
         if (!isAiming)
         {
-            Ray ray = new Ray(rayInicialPos.transform.position, transform.forward);
+            rayInicialPos.transform.rotation = this.transform.rotation;
+            //if (rayInicialPos .transform.rotation != Quaternion.Euler(0, 0, 0))
+            //{
+            //    if (rayInicialPos.transform.rotation.eulerAngles.y > 0)
+            //    {
+            //        rayInicialPos.transform.Rotate(0, -20f * Time.deltaTime, 0);
+            //    } else if (rayInicialPos.transform.rotation.eulerAngles.y < 0)
+            //    {
+            //        rayInicialPos.transform.Rotate(0, 20f * Time.deltaTime, 0);
+            //    }
+
+            //    if (rayInicialPos.transform.rotation.eulerAngles.x > 0)
+            //    {
+            //        rayInicialPos.transform.Rotate(-20f * Time.deltaTime, 0, 0);
+            //    }
+            //    else if (rayInicialPos.transform.rotation.eulerAngles.x < 0)
+            //    {
+            //        rayInicialPos.transform.Rotate(20f * Time.deltaTime, 0, 0);
+            //    } 
+            //}
+
+            Ray ray = new Ray(rayInicialPos.transform.position, rayInicialPos.transform.forward);
             //rayDirection = Vector3.forward;
             //lookDirection = new Vector3(0, 0, transform.position.z);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
@@ -125,7 +168,8 @@ public class PlayerShoot : MonoBehaviour
             {
                 rig.weight = Mathf.Lerp(rig.weight, 0f, 0.05f);
             }
-           
+
+
         }
         // Disparar con Click Izquierdo
         if (isAiming && Input.GetMouseButtonDown(0))

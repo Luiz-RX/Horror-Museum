@@ -462,7 +462,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1660683880365629472}
   - {fileID: 3173451649968320535}
   - {fileID: 7885035027029587636}
   - {fileID: 8669101784716094592}
@@ -527,6 +526,7 @@ MonoBehaviour:
   firePoint: {fileID: 6332546888029622716}
   bulletSpeed: 20
   rayInicialPos: {fileID: 8669101784716094592}
+  rotateSpeed: 15
   rig: {fileID: 3286543989498529804}
   aimMask:
     serializedVersion: 2
@@ -1005,7 +1005,7 @@ Transform:
   m_GameObject: {fileID: 2547033111191661941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.00029, z: 0.00057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1096,13 +1096,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2635139828483417272}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70710677, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 1.2278333, z: 0}
+  m_LocalRotation: {x: -0.70710677, y: -6.4476987e-12, z: -4.9689e-12, w: 0.7071068}
+  m_LocalPosition: {x: -0.000011560334, y: -0.40213597, z: -0.007989484}
   m_LocalScale: {x: 121.91466, y: 112.89016, z: 112.89016}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4022255761093953667}
-  m_Father: {fileID: 1173385843884883617}
+  m_Father: {fileID: 6603130450713209223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7962031465571737917
 SkinnedMeshRenderer:
@@ -1843,6 +1843,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8953883393120978143}
+  - {fileID: 1660683880365629472}
   m_Father: {fileID: 1289495371170195938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5218531562967818087

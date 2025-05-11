@@ -11,6 +11,8 @@ public class CavernicolaMiniBoss : MonoBehaviour
 
     private NavMeshAgent agent;
     private Animator animator;
+    public Animator Door;
+    [SerializeField] AudioClip doorSound;
 
     [SerializeField]private bool canMove = false;
     [SerializeField]private bool playerInRoom = false;
@@ -102,6 +104,8 @@ public class CavernicolaMiniBoss : MonoBehaviour
             isVulnerable = false;
             animator.SetBool("Death", true);
             agent.isStopped = true;
+            Door.SetTrigger("Open");
+            SoundFXManager.Instance.PlaySoundFXClip(doorSound, Door.transform, 1f);
             if (lampLogic == null) lampLogic = FindAnyObjectByType<LampLogic>();
             lampLogic.returnToNormal = false;
         }

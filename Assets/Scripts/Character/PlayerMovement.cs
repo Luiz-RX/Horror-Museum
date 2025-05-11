@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private PlayerShoot playerShoot;
 
+    [SerializeField] AudioClip[] stepSounds;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -36,5 +38,10 @@ public class PlayerMovement : MonoBehaviour
         // Rotación izquierda / derecha (A/D)
         float rotation = Input.GetAxis("Horizontal"); // A (-1) / D (1)
         transform.Rotate(Vector3.up * rotation * rotationSpeed * Time.deltaTime);
+    }
+
+    public void PlayRandomStepSound()
+    {
+        SoundFXManager.Instance.PlayRandomSoundFXClip(stepSounds, this.transform, 0.65f);
     }
 }

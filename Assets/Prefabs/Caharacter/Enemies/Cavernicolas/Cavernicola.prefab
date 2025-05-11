@@ -714,6 +714,7 @@ GameObject:
   - component: {fileID: 6177625386222804683}
   - component: {fileID: 2093225175198884077}
   - component: {fileID: 6141301384855227896}
+  - component: {fileID: 1957241197970268497}
   m_Layer: 7
   m_Name: Cavernicola
   m_TagString: Untagged
@@ -797,6 +798,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &1957241197970268497
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176603483176160334}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.2629638
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.126301, z: 0}
 --- !u!1 &4494308967413063099
 GameObject:
   m_ObjectHideFlags: 0

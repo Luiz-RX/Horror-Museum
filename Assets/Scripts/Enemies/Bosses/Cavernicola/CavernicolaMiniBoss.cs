@@ -76,6 +76,11 @@ public class CavernicolaMiniBoss : MonoBehaviour
         canMove = true;
     }
 
+
+    void ResetVulnerability()
+    {
+        isVulnerable = false;
+    }
     public void RegisterHit()
     {
         if (isDead) return;
@@ -89,11 +94,6 @@ public class CavernicolaMiniBoss : MonoBehaviour
             Invoke(nameof(ResetVulnerability), 6f);
             hitCount = 0;
         }
-    }
-
-    void ResetVulnerability()
-    {
-        isVulnerable = false;
     }
 
     public void TryKillFromLamp()

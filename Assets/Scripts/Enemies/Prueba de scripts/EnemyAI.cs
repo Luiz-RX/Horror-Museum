@@ -11,8 +11,10 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     private Transform player;
     private Animator animator;
+    bool isDead;
+    int hitCount = 0;
 
-    private bool playerInRoom = false;
+    [SerializeField] private bool playerInRoom = false;
 
     private void Start()
     {
@@ -25,6 +27,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
+
         if (!canMove || !playerInRoom)
         {
             ReturnToStart();
@@ -43,6 +47,29 @@ public class EnemyAI : MonoBehaviour
             agent.isStopped = false;
             agent.SetDestination(player.position);
             animator.SetBool("IsWalking", true);
+        }
+    }
+
+    public void RegisterHit()
+    {
+        if (isDead) return;
+
+        hitCount++;
+
+        if (hitCount >= 4)
+        {
+           
+            animator.SetBool("Die", true);
+            
+           
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            RegisterHit();
         }
     }
 

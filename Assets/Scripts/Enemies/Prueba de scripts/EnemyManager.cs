@@ -5,7 +5,7 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;
 
-    private List<EnemyAI> allEnemies = new List<EnemyAI>();
+    [SerializeField] private List<EnemyAI> allEnemies = new List<EnemyAI>();
 
     private void Awake()
     {
@@ -27,4 +27,6 @@ public class EnemyManager : MonoBehaviour
                 enemy.SetPlayerInRoom(playerEntered);
         }
     }
+
+    
 }

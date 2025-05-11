@@ -15,6 +15,7 @@ public class Keypad : MonoBehaviour
     
 
     bool canClear;
+    bool correctAnsw;
     public Animator doorAnim;
     void Start()
     {
@@ -25,6 +26,7 @@ public class Keypad : MonoBehaviour
         codeNum4 = Random.Range(0, 10);
         answer = "" +codeNum1 + codeNum2 +codeNum3 +codeNum4;
         
+        canClear = true;
         Debug.Log(answer);
     }
 
@@ -41,6 +43,7 @@ public class Keypad : MonoBehaviour
         if (enteredNumbers.text == answer)
         {
             //Abrir Puerta
+            correctAnsw = true;
             Debug.Log("SI");
             enteredNumbers.color = Color.green;
             doorAnim.SetTrigger("Open");
@@ -79,6 +82,10 @@ public class Keypad : MonoBehaviour
         if(!isAnswerSet)
         {
             answerToSend = answer;
+        }
+        if (correctAnsw)
+        {
+            canClear = false;
         }
     }
 }

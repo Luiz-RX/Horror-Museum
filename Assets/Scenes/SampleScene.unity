@@ -6298,7 +6298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 297730127}
   interactCam: {fileID: 346207834}
-  KeycodeUI: {fileID: 1973500032}
+  KeycodeUI:
+  - {fileID: 0}
   buttonColliders: []
 --- !u!65 &1644025676
 BoxCollider:

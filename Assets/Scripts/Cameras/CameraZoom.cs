@@ -6,7 +6,7 @@ public class CameraZoom : MonoBehaviour
 {
     public GameObject playerCam;
     public GameObject interactCam;
-    public GameObject KeycodeUI;
+    public GameObject[] KeycodeUI;
 
     public Collider[] buttonColliders;
 
@@ -60,7 +60,10 @@ public class CameraZoom : MonoBehaviour
         {
             playerCam.SetActive(false);
             interactCam.SetActive(true);
-            StartCoroutine(ActivateUI());
+            //for (int i = 0; i < KeycodeUI.Length; i++)
+            //{
+            //    KeycodeUI[i].SetActive(true);
+            //}
             SetCursorLock();
             EnableButtons();
             activeCam = 2;
@@ -69,7 +72,10 @@ public class CameraZoom : MonoBehaviour
         {
             playerCam.SetActive(true);
             interactCam.SetActive(false);
-            KeycodeUI.SetActive(false);
+            //for (int i = 0; i < KeycodeUI.Length; i++)
+            //{
+            //    KeycodeUI[i].SetActive(false);
+            //}
             SetCursorLock();
             DisableButtons();
             activeCam = 1;
@@ -97,7 +103,7 @@ public class CameraZoom : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         if (activeCam == 2)
         {
-            KeycodeUI.SetActive(true);
+            //KeycodeUI.SetActive(true);
         }
     }
 

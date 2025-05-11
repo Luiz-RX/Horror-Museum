@@ -54,7 +54,7 @@ public class CameraZoom : MonoBehaviour
         }
     }
 
-    void ChangeCam() 
+    public void ChangeCam() 
     { 
         if (activeCam == 1)
         {

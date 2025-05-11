@@ -16,7 +16,10 @@ public class Keypad : MonoBehaviour
 
     bool canClear;
     bool correctAnsw;
+    CameraZoom cZoom;
     public Animator doorAnim;
+    public Transform soundPos;
+    [SerializeField] AudioClip doorSound;
     void Start()
     {
         
@@ -25,7 +28,7 @@ public class Keypad : MonoBehaviour
         codeNum3 = Random.Range(0, 10);
         codeNum4 = Random.Range(0, 10);
         answer = "" +codeNum1 + codeNum2 +codeNum3 +codeNum4;
-        
+        cZoom = GetComponentInChildren<CameraZoom>();
         canClear = true;
         Debug.Log(answer);
     }
@@ -40,18 +43,24 @@ public class Keypad : MonoBehaviour
 
     public void Execute()
     {
-        if (enteredNumbers.text == answer)
+        if (!correctAnsw)
         {
-            //Abrir Puerta
-            correctAnsw = true;
-            Debug.Log("SI");
-            enteredNumbers.color = Color.green;
-            doorAnim.SetTrigger("Open");
-            canClear = false;
-        } else
-        {
-            StartCoroutine(WrongKeycode());
-            Debug.Log("Error");
+            if (enteredNumbers.text == answer)
+            {
+                //Abrir Puerta
+                correctAnsw = true;
+                Debug.Log("SI");
+                enteredNumbers.color = Color.green;
+                SoundFXManager.Instance.PlaySoundFXClip(doorSound, soundPos, 1f);
+                doorAnim.SetTrigger("Open");
+                cZoom.ChangeCam();
+                canClear = false;
+            }
+            else
+            {
+                StartCoroutine(WrongKeycode());
+                Debug.Log("Error");
+            }
         }
     }
 

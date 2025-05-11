@@ -15,14 +15,17 @@ public class CavernicolaMiniBoss : MonoBehaviour
     [SerializeField]private bool canMove = false;
     [SerializeField]private bool playerInRoom = false;
     private int hitCount = 0;
-    private bool isVulnerable = false;
-    private bool isDead = false;
+    [SerializeField]private bool isVulnerable = false;
+    [SerializeField] private bool isDead = false;
     private float lastAttackTime = -Mathf.Infinity;
+
+    LampLogic lampLogic;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        lampLogic = FindAnyObjectByType<LampLogic>();
     }
 
     private void Update()
@@ -99,6 +102,7 @@ public class CavernicolaMiniBoss : MonoBehaviour
             isVulnerable = false;
             animator.SetTrigger("Death");
             agent.isStopped = true;
+            lampLogic.returnToNormal = false;
         }
     }
 

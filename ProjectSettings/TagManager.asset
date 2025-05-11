@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bullet
+  - Lampara
+  - MiniBoss
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Room 4
   - Room 5
   - Room 6
-  - 
+  - InteractColl
   - 
   - 
   - 

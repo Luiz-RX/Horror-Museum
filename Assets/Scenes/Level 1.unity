@@ -622,7 +622,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 48875672}
-  - component: {fileID: 48875673}
   m_Layer: 5
   m_Name: KP
   m_TagString: Untagged
@@ -650,23 +649,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &48875673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48875671}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b887d38a4738f5b4c8b70c534e9b3b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enteredNumbers: {fileID: 771105867}
-  answerToSend: 
-  doorAnim: {fileID: 0}
-  soundPos: {fileID: 0}
-  doorSound: {fileID: 0}
 --- !u!1 &49209085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1097,7 @@ Transform:
   m_GameObject: {fileID: 99330689}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49884942, y: 0, z: 0, w: 0.86668867}
-  m_LocalPosition: {x: 6.872507, y: 6.377646, z: 25.972725}
+  m_LocalPosition: {x: 20.29, y: 6.377646, z: 9.543211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1763,7 +1745,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Clear
         m_Mode: 1
@@ -2977,7 +2959,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -3159,7 +3141,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -3660,7 +3642,7 @@ GameObject:
   - component: {fileID: 391169547}
   - component: {fileID: 391169546}
   - component: {fileID: 391169545}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Elefifi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3727,7 +3709,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.014
+      value: 27.721
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3735,23 +3717,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.262
+      value: 14.997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.7071066
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -0.707107
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3759,7 +3741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3793,6 +3775,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 1a6d6d9906502874099ac3348f71debb, type: 2}
+    - target: {fileID: -133038111106242337, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: -79762779022689228, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
@@ -3809,6 +3795,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lever
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879070364656932655, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3819,6 +3813,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1233540709}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1233540710}
   m_SourcePrefab: {fileID: 100100000, guid: 9342f2e126e2c9f459fa8082d8b63326, type: 3}
 --- !u!1 &409236417
 GameObject:
@@ -4539,7 +4536,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -4808,7 +4805,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: Execute
         m_Mode: 1
@@ -4952,6 +4949,10 @@ PrefabInstance:
     - target: {fileID: 4068295697934909042, guid: aa5503732ad7b9b4d9eb9b0b40f54d10, type: 3}
       propertyPath: m_Name
       value: Jefe Cavernicola
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068295697934909042, guid: aa5503732ad7b9b4d9eb9b0b40f54d10, type: 3}
+      propertyPath: m_TagString
+      value: MiniBoss
       objectReference: {fileID: 0}
     - target: {fileID: 4396356785079182660, guid: aa5503732ad7b9b4d9eb9b0b40f54d10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5150,7 +5151,7 @@ PrefabInstance:
       objectReference: {fileID: 726507908}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.872507
+      value: 20.29
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5158,7 +5159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.769514
+      value: 12.34
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6887,7 +6888,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -7020,7 +7021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -7573,7 +7574,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -9048,6 +9049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chadelier
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9743381e1f12a2340ae4f566375c6dea, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9055,6 +9060,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9743381e1f12a2340ae4f566375c6dea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2107117722}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9743381e1f12a2340ae4f566375c6dea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2107117723}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9743381e1f12a2340ae4f566375c6dea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2107117724}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9743381e1f12a2340ae4f566375c6dea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2107117725}
   m_SourcePrefab: {fileID: 100100000, guid: 9743381e1f12a2340ae4f566375c6dea, type: 3}
 --- !u!1 &1138259082
 GameObject:
@@ -9139,7 +9153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -10085,6 +10099,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6221a22c260182944a7612b8c818dc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 0
+  leverSound: {fileID: 8300000, guid: dfe33ad5b76488348849fdc0d6f99c73, type: 3}
+--- !u!65 &1233540710
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233540706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.614769, y: 3.2016473, z: 2.024149}
+  m_Center: {x: -0.015766144, y: -0.01687646, z: 0.5120745}
 --- !u!1 &1245054977
 GameObject:
   m_ObjectHideFlags: 0
@@ -13868,7 +13905,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -14247,7 +14284,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -14487,7 +14524,7 @@ Transform:
   m_GameObject: {fileID: 1687157170}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49884942, y: 0, z: 0, w: 0.86668867}
-  m_LocalPosition: {x: 6.872507, y: 6.377646, z: 25.972725}
+  m_LocalPosition: {x: 20.29, y: 6.377646, z: 9.543211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15122,7 +15159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.872507
+      value: 20.29
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15130,7 +15167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.357445
+      value: 4.927931
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16878,7 +16915,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 48875673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
         m_MethodName: setNum
         m_Mode: 3
@@ -18007,6 +18044,69 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2107117723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107117718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c12adc7982a6e24db95ef66f642eda6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnToNormal: 0
+  anim: {fileID: 0}
+  returnSound: {fileID: 8300000, guid: d019dfd75983eb34dba954a30cb7d94c, type: 3}
+--- !u!65 &2107117724
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107117718}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.10745977, y: 0.09333549, z: 0.09679402}
+  m_Center: {x: 0, y: -0.000040747225, z: -0.034014966}
+--- !u!54 &2107117725
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107117718}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &2133225185
 GameObject:
   m_ObjectHideFlags: 0
@@ -18418,7 +18518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653137646172}
   - component: {fileID: 919132148677044455}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Codelock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18621,6 +18721,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 662505672292248907, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 1310913724164770974, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
@@ -18633,6 +18737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoothySatty
       objectReference: {fileID: 0}
+    - target: {fileID: 2675592391727593269, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2848807616477452260, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
@@ -18641,17 +18749,29 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 1a6d6d9906502874099ac3348f71debb, type: 2}
+    - target: {fileID: 3017139778824217835, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783726587344942649, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307578663875320058, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8232719754236190140, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.739
       objectReference: {fileID: 0}
     - target: {fileID: 8232719754236190140, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.147
+      value: 0.182
       objectReference: {fileID: 0}
     - target: {fileID: 8232719754236190140, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.039
+      value: 32.038
       objectReference: {fileID: 0}
     - target: {fileID: 8232719754236190140, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
       propertyPath: m_LocalRotation.w

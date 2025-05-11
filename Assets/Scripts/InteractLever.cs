@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class InteractLever : MonoBehaviour
@@ -6,10 +7,15 @@ public class InteractLever : MonoBehaviour
     [SerializeField] int cooldown;
     bool canPullLever;
     Animator anim;
+    [SerializeField] AudioClip leverSound;
+
+    LampLogic lampLogic;
     
     void Start()
     {
+        canPullLever = true;
         anim = GetComponent<Animator>();
+        lampLogic = FindAnyObjectByType<LampLogic>();
     }
 
     // Update is called once per frame
@@ -19,9 +25,11 @@ public class InteractLever : MonoBehaviour
     {
         if (canInteract)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && canPullLever)
             {
+                canPullLever = false;
                 PullLever();
+                StartCoroutine(LeverCooldown());
             }
         }
     }
@@ -48,5 +56,22 @@ public class InteractLever : MonoBehaviour
     private void PullLever()
     {
         anim.SetTrigger("Pull");
+        lampLogic.anim.SetTrigger("Fall"); 
+    }
+
+    public void ReturnLever()
+    {
+        anim.SetTrigger("Return");
+    }
+
+    IEnumerator LeverCooldown()
+    {
+        yield return new WaitForSeconds(cooldown);
+        canPullLever = true;
+    }
+
+    void PlayLeverSound()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(leverSound, this.transform, 1f);
     }
 }

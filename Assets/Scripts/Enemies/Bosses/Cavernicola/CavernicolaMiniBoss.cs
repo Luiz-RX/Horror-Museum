@@ -100,8 +100,9 @@ public class CavernicolaMiniBoss : MonoBehaviour
         {
             isDead = true;
             isVulnerable = false;
-            animator.SetTrigger("Death");
+            animator.SetBool("Death", true);
             agent.isStopped = true;
+            if (lampLogic == null) lampLogic = FindAnyObjectByType<LampLogic>();
             lampLogic.returnToNormal = false;
         }
     }

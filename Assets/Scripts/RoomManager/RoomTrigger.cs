@@ -14,6 +14,7 @@ public class RoomTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             FadeTransition.Instance.StartFade(() => {
                 RoomManager.Instance.EnterRoom(roomName);
             });

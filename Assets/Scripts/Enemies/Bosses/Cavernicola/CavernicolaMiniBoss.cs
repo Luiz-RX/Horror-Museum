@@ -81,7 +81,7 @@ public class CavernicolaMiniBoss : MonoBehaviour
         {
             isVulnerable = true;
             animator.SetTrigger("Hit");
-            Invoke(nameof(ResetVulnerability), 5f);
+            Invoke(nameof(ResetVulnerability), 6f);
             hitCount = 0;
         }
     }

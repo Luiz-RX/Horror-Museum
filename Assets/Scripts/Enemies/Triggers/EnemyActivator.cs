@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class EnemyActivator : MonoBehaviour
 {
-    [SerializeField] private EnemyController[] enemies;
+    EnemyManager m_EnemyManager;
 
-    public void ActivarEnemigos()
+    private void Start()
     {
-        foreach (var enemy in enemies)
-        {
-            enemy.ActivarMovimiento();
-        }
+        m_EnemyManager = FindAnyObjectByType<EnemyManager>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        m_EnemyManager.ActivateMovement();
     }
 }

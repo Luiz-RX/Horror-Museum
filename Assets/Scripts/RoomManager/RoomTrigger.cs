@@ -14,11 +14,11 @@ public class RoomTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            Debug.Log("[RoomTrigger] Jugador entró en sala: " + roomName);
             FadeTransition.Instance.StartFade(() => {
                 RoomManager.Instance.EnterRoom(roomName);
             });
-            EnemyManager.Instance.NotifyRoomChange(roomName, true);
+            
         }
     }
 

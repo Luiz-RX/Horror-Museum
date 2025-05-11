@@ -29,6 +29,10 @@ public class RoomManager : MonoBehaviour
         // Al iniciar desactiva todo excepto la primera sala
         EnterRoom(rooms[0].name);
     }
+    private void Start()
+    {
+        EnemyManager.Instance?.NotifyRoomChange(rooms[0].name, true);
+    }
 
     public void EnterRoom(string roomName)
     {
@@ -52,6 +56,12 @@ public class RoomManager : MonoBehaviour
             {
                 int roomLayer = LayerMask.NameToLayer(room.layerName);
                 mainCamera.cullingMask = persistentLayers | (1 << roomLayer);
+            }
+
+            // Notificar al EnemyManager para que active/desactive enemigos
+            if (EnemyManager.Instance != null)
+            {
+                EnemyManager.Instance.NotifyRoomChange(room.name, isActive);
             }
         }
     }

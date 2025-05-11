@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour
         if (!canMove || !playerInRoom)
         {
             ReturnToStart();
+            animator.SetBool("IsWalking", false);
             return;
         }
 
@@ -60,8 +61,11 @@ public class EnemyAI : MonoBehaviour
         {
            
             animator.SetBool("Die", true);
-            
-           
+            agent.isStopped = true;
+            agent.enabled = false;
+            Collider col = GetComponent<Collider>();
+            if (col != null) col.enabled = false;
+
         }
     }
 
@@ -93,5 +97,10 @@ public class EnemyAI : MonoBehaviour
     public void SetPlayerInRoom(bool inRoom)
     {
         playerInRoom = inRoom;
+    }
+
+    public void SetMove(bool t)
+    {
+        canMove = t;
     }
 }

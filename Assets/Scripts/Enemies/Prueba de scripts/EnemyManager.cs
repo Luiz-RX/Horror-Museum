@@ -21,6 +21,7 @@ public class EnemyManager : MonoBehaviour
 
     public void NotifyRoomChange(string roomName, bool playerEntered)
     {
+        Debug.Log($"[EnemyManager] Jugador {(playerEntered ? "ENTRA" : "SALE")} en sala: {roomName}");
         foreach (var enemy in allEnemies)
         {
             if (enemy.roomName == roomName)
@@ -28,5 +29,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    
+    public void ActivateMovement()
+    {
+        foreach (var enemy in allEnemies)
+        {
+            enemy.SetMove(true);
+        }
+    }
 }

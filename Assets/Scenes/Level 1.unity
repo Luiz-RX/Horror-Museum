@@ -5583,26 +5583,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampi (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
-      propertyPath: m_Lightmapping
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: -0.0000000024770301
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: -7.0314994e+29
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 1.314e-42
-      objectReference: {fileID: 0}
     - target: {fileID: 7641669287354246222, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.014092

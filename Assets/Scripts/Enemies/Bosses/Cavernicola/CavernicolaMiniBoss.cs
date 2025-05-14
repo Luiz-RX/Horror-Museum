@@ -20,6 +20,7 @@ public class CavernicolaMiniBoss : MonoBehaviour
     [SerializeField]private bool isVulnerable = false;
     [SerializeField] private bool isDead = false;
     private float lastAttackTime = -Mathf.Infinity;
+    
 
     LampLogic lampLogic;
 

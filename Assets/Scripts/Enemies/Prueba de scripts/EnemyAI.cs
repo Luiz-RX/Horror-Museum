@@ -13,8 +13,11 @@ public class EnemyAI : MonoBehaviour
     private Animator animator;
     bool isDead;
     int hitCount = 0;
+    
 
     [SerializeField] private bool playerInRoom = false;
+
+
 
     private void Start()
     {
@@ -98,7 +101,7 @@ public class EnemyAI : MonoBehaviour
     {
         playerInRoom = inRoom;
     }
-
+    
     public void SetMove(bool t)
     {
         canMove = t;

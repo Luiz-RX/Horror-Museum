@@ -11058,7 +11058,7 @@ Material:
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowIntensity: {r: 0, g: 1, b: 0, a: 0}
     - _ToLightDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 1.31}
-    - _WindDirection: {r: 0.0766729, g: 0.051115267, b: 0, a: 9.27051}
+    - _WindDirection: {r: 2.613255, g: 1.7421712, b: 0, a: 281.82352}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1001 &845710225
@@ -33766,7 +33766,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2490194675104952993}
-  m_Mesh: {fileID: 8691780276856062721, guid: ea0f48cb63ad98a43abc47d695b5ee9b, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: b9abb04ad71352a4e9cca13594407ca2, type: 3}
 --- !u!1 &9218312972828193131
 GameObject:
   m_ObjectHideFlags: 0

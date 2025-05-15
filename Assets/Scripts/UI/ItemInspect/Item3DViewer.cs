@@ -52,7 +52,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         
-        Quaternion itemRotation = Quaternion.Euler(eventData.delta.y, -eventData.delta.x, 0);
+        Quaternion itemRotation = Quaternion.Euler(eventData.delta.y / 6, -eventData.delta.x / 6, 0);
         itemPrefab.transform.rotation = itemRotation * itemPrefab.transform.rotation;
         //itemPrefab.transform.eulerAngles += new Vector3(-eventData.delta.y/2, -eventData.delta.x/2);
     }

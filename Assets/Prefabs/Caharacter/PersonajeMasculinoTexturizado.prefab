@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 1392920035912613490}
   - component: {fileID: 2407900823420407068}
   - component: {fileID: 151572737783380186}
+  - component: {fileID: 237768260349385730}
   - component: {fileID: 6142498555639987406}
   m_Layer: 3
   m_Name: PersonajeMasculinoTexturizado
@@ -576,6 +577,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 6
+--- !u!114 &237768260349385730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474324663085896476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5d1799ef5adfc44974d55f3acfd438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 12
+  chamber: 24
 --- !u!114 &6142498555639987406
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class PlayerShoot : MonoBehaviour
     public Transform rayInicialPos;
     [SerializeField] float rotateSpeed = 15f;
     public Rig rig;
+    private PlayerAmmo ammo;
 
     Vector3 lookDirection;
     Vector3 rotatedDirection;
@@ -34,6 +35,7 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        ammo = GetComponent<PlayerAmmo>();
     }
 
     void Update()
@@ -199,6 +201,7 @@ public class PlayerShoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.linearVelocity = shootDirection * bulletSpeed;
+        ammo.TakeAmmo();
         Destroy(bullet, 2f);
     }
     void AimingShoot()

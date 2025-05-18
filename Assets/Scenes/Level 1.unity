@@ -11058,7 +11058,7 @@ Material:
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowIntensity: {r: 0, g: 1, b: 0, a: 0}
     - _ToLightDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 1.31}
-    - _WindDirection: {r: 0.18790613, g: 0.12527075, b: 0, a: 14.832816}
+    - _WindDirection: {r: 0.00588207, g: 0.00392138, b: 0, a: 2.472136}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!1001 &845710225

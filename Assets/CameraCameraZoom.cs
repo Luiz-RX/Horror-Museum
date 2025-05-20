@@ -173,7 +173,7 @@ public class CameraCameraZoom : MonoBehaviour
         DefaultCam();
         ActivateCamUI();
         camWatchUI.SetActive(false);
-        
+        uiButtons[0].SetActive(true);
     }
 
     public void NextCam()

@@ -1,10 +1,15 @@
 using System.Collections;
+using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
+
 
 public class CameraCameraZoom : MonoBehaviour
 {
     public GameObject playerCam;
     public GameObject interactCam;
+
+    public TextMeshProUGUI textoSalaCamara;
 
     public GameObject camWatchUI;
 
@@ -13,6 +18,8 @@ public class CameraCameraZoom : MonoBehaviour
     public GameObject[] uiCams;
 
     public GameObject[] cameras;
+
+    public CinemachineBrain mainCamBrain;
 
     int activeCam = 1;
 
@@ -47,6 +54,8 @@ public class CameraCameraZoom : MonoBehaviour
                     currentCam = i;
                 }
             }
+
+            textoSalaCamara.text = "Room: " + (currentCam+1);
         }
     }
 
@@ -65,6 +74,7 @@ public class CameraCameraZoom : MonoBehaviour
         {
             if (activeCam == 2)
             {
+                CloseCams();
                 ChangeCam();
             }
 
@@ -74,6 +84,7 @@ public class CameraCameraZoom : MonoBehaviour
 
     public void ChangeCam()
     {
+        mainCamBrain.DefaultBlend.Time = 2f;
         if (activeCam == 1)
         {
             playerCam.SetActive(false);
@@ -128,6 +139,7 @@ public class CameraCameraZoom : MonoBehaviour
 
     public void ChangeCamFullscreen(int camNum)
     {
+        mainCamBrain.DefaultBlend.Time = 0f;
 
         isWatchingCams = true;
         interactCam.SetActive(false);
@@ -145,12 +157,13 @@ public class CameraCameraZoom : MonoBehaviour
         {
             uiButtons[i].SetActive(false);
         }
-        StartCoroutine(ActivateCamUI2());
+        camWatchUI.SetActive(true);
         Debug.Log("Changed cam to cam " + camNum);
     }
 
     public void CloseCams()
     {
+
         isWatchingCams = false;
         for (int i = 0; i < cameras.Length; i++)
         {
@@ -159,32 +172,27 @@ public class CameraCameraZoom : MonoBehaviour
         interactCam.SetActive(true);
         DefaultCam();
         ActivateCamUI();
-        camWatchUI.SetActive(true);
+        camWatchUI.SetActive(false);
+        
     }
 
     public void NextCam()
     {
         currentCam++;
-        if (currentCam > cameras.Length)
+        if (currentCam == cameras.Length)
         {
             currentCam = 0;
-        } else if (currentCam < 0)
-        {
-            currentCam = cameras.Length;
-        }
+        } 
         ChangeCamFullscreen(currentCam);
     }
 
     public void PrevCam()
     {
-        currentCam--;
-        if (currentCam > cameras.Length)
+        currentCam -= 1;
+        
+        if (currentCam < 0)
         {
-            currentCam = 0;
-        }
-        else if (currentCam < 0)
-        {
-            currentCam = cameras.Length;
+            currentCam = 3;
         }
         ChangeCamFullscreen(currentCam);
     }

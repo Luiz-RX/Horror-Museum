@@ -131,6 +131,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampi (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
+      objectReference: {fileID: 0}
     - target: {fileID: 7641669287354246222, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27
@@ -1182,7 +1194,7 @@ Transform:
   m_GameObject: {fileID: 99330689}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49884942, y: 0, z: 0, w: 0.86668867}
-  m_LocalPosition: {x: 5.453, y: 6.247647, z: 24.16321}
+  m_LocalPosition: {x: 3.36, y: 6.247647, z: 23.20321}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2217,7 +2229,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 3480
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -8213,7 +8225,7 @@ PrefabInstance:
       objectReference: {fileID: 726507908}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.453
+      value: 3.36
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8221,7 +8233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.96
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11161,7 +11173,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9433962, g: 0.5909463, b: 0.3693485, a: 1}
-  m_Intensity: 3
+  m_Intensity: 4
   m_Range: 6.7261453
   m_SpotAngle: 109.27845
   m_InnerSpotAngle: 61.510914
@@ -11204,7 +11216,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 3502
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -16090,7 +16102,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 3073
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -23298,6 +23310,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lampi (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3484336
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.47424963
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
     - target: {fileID: 7641669287354246222, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.028
@@ -23354,6 +23378,18 @@ PrefabInstance:
     - target: {fileID: 340253440718248134, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_Name
       value: Lampi (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 7641669287354246222, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29623,7 +29659,7 @@ Transform:
   m_GameObject: {fileID: 1687157170}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49884942, y: 0, z: 0, w: 0.86668867}
-  m_LocalPosition: {x: 5.453, y: 6.247647, z: 24.16321}
+  m_LocalPosition: {x: 3.36, y: 6.247647, z: 23.20321}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30948,7 +30984,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.453
+      value: 3.36
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30956,7 +30992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.54793
+      value: 18.58793
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32238,6 +32274,18 @@ PrefabInstance:
     - target: {fileID: 340253440718248134, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_Name
       value: Lampi (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 7641669287354246222, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40381,6 +40429,10 @@ PrefabInstance:
     - target: {fileID: 340253440718248134, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_Name
       value: Lampi (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995511980585394980, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
+      propertyPath: m_Intensity
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7641669287354246222, guid: 6d924eaf828f6bb459a7d7a2a269116c, type: 3}
       propertyPath: m_LocalPosition.x

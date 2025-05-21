@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 03cc0b785b400894eb6783ecf88b9815
+  m_OcclusionCullingData: {fileID: 36300000, guid: e41346cec22bf8249b521af64f004f6b, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -12279,7 +12279,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1687157172}
   persistentLayers:
     serializedVersion: 2
-    m_Bits: 8201
+    m_Bits: 4294967295
   rooms:
   - name: Room 1
     rootObject: {fileID: 276579877}

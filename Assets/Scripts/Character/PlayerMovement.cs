@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] AudioClip[] stepSounds;
 
+    public InventoryObject inventory;
+    bool canPickupItem;
+
+    
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -23,6 +27,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        //if (canPickupItem)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        var item = other.GetComponent<Item>();
+        //        if (item)
+        //        {
+        //            inventory.AddItem(item.item, 1);
+        //            Destroy(other.gameObject);
+        //        }
+        //    }
+        //}
+
         if (playerShoot != null && playerShoot.isAiming) return;
         // Detectar entrada de movimiento (W/S)
         float moveDirection = Input.GetAxis("Vertical"); // W (1) / S (-1)
@@ -43,5 +60,41 @@ public class PlayerMovement : MonoBehaviour
     public void PlayRandomStepSound()
     {
         SoundFXManager.Instance.PlayRandomSoundFXClip(stepSounds, this.transform, 0.65f);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Item")
+        {
+            var item = other.GetComponent<Item>();
+            if (item)
+            {
+                inventory.AddItem(item.item, 1);
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Item")
+    //    {
+    //        canPickupItem = true;
+    //    }
+
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.tag == "Item")
+    //    {
+
+    //        canPickupItem = false;
+    //    }
+    //}
+
+    private void OnApplicationQuit()
+    {
+        inventory.Container.Clear();
     }
 }

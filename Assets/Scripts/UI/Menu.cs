@@ -22,10 +22,14 @@ public class Menu : MonoBehaviour
         {
             if (!isMenuActive)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 isMenuActive = true;
                 menuPanel.SetActive(true);
             } else if (isMenuActive)
             {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 isMenuActive = false;
                 menuPanel.SetActive(false);
             }

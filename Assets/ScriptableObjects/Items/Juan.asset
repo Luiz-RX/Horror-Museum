@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Juan
   m_EditorClassIdentifier: 
   prefab: {fileID: 8471219786263348881, guid: 8c4e39b53f1aef44bb84a41929e49f48, type: 3}
-  type: 0
+  type: 2
   description: Juan es una persona con muchas capacidedes en muchas areas y muy buenas
     y muy bonitas

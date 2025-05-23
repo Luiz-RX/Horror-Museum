@@ -9,7 +9,7 @@ public class Item3DViewerInventory: MonoBehaviour, IDragHandler
     Vector3 inspectPos = new Vector3(100, 100, 100);
     private GameObject itemPrefab;
     
-    public CinemachineOrbitalFollow cameraRotation;
+    //public CinemachineOrbitalFollow cameraRotation;
     
     void Start()
     {
@@ -38,7 +38,7 @@ public class Item3DViewerInventory: MonoBehaviour, IDragHandler
     public void stopInspectingItem()
     {
         itemSelected=false;
-        cameraRotation.enabled = true;
+        //cameraRotation.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         
@@ -53,6 +53,7 @@ public class Item3DViewerInventory: MonoBehaviour, IDragHandler
         
         Quaternion itemRotation = Quaternion.Euler(eventData.delta.y / 6, -eventData.delta.x / 6, 0);
         itemPrefab.transform.rotation = itemRotation * itemPrefab.transform.rotation;
+        
         //itemPrefab.transform.eulerAngles += new Vector3(-eventData.delta.y/2, -eventData.delta.x/2);
     }
 }

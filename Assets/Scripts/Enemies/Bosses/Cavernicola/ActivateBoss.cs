@@ -6,7 +6,7 @@ public class ActivateBoss : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             cavern.ActivateBoss();
             cavern.SetPlayerInRoom(true);

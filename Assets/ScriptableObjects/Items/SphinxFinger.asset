@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2b453088b424354c9620dedaf6eec81, type: 3}
-  m_Name: Juan
+  m_Name: SphinxFinger
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2675592391727593269, guid: 5b489c03496d19843a2584da42609353, type: 3}
+  prefab: {fileID: 8471219786263348881, guid: 8c4e39b53f1aef44bb84a41929e49f48, type: 3}
   type: 0
-  description: Juan es una persona con muchas capacidedes en muchas areas y muy buenas
-    y muy bonitas
+  description: A luis le encantan las esfinges, de hecho el bicho esfinge, parecido
+    a los colibris, es suy anomal preferido, ya que suele ser asociado con un ser
+    querido visitandote. Abre el esfinge.

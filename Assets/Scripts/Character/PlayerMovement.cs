@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Animator animator;
     private PlayerShoot playerShoot;
+    Item item;
+    bool canInteract;
 
     [SerializeField] AudioClip[] stepSounds;
 
@@ -55,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
         // Rotación izquierda / derecha (A/D)
         float rotation = Input.GetAxis("Horizontal"); // A (-1) / D (1)
         transform.Rotate(Vector3.up * rotation * rotationSpeed * Time.deltaTime);
+
+        if(Input.GetKeyDown(KeyCode.E) && canInteract) 
+        {
+            if (item)
+            {
+                inventory.AddItem(item.item, 1);
+                Destroy(item.gameObject);
+            }
+        }
     }
 
     public void PlayRandomStepSound()
@@ -64,15 +75,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Item")
+        if (other.CompareTag("Item"))
         {
-            var item = other.GetComponent<Item>();
-            if (item)
-            {
-                inventory.AddItem(item.item, 1);
-                Destroy(other.gameObject);
-            }
+            item = other.GetComponent<Item>();
+            canInteract = true;
+            //if (item)
+            //{
+            //    inventory.AddItem(item.item, 1);
+            //    Destroy(other.gameObject);
+            //}
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Item")) canInteract = false;
+
     }
 
     //private void OnTriggerEnter(Collider other)

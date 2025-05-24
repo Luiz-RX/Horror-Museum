@@ -6,6 +6,7 @@ public class Sarcofago : MonoBehaviour
     [SerializeField] bool hasEnemy;
     private bool playerIn;
     private Inventarioimprovisado inventario;
+    [SerializeField] InventoryObject inventory; 
 
     private EnemyAI enemyAI;
     private CapsuleCollider capsuleCollider;
@@ -27,23 +28,39 @@ public class Sarcofago : MonoBehaviour
     {
         if (playerIn && Input.GetKeyDown(KeyCode.E))
         {
-            if (inventario.palanca == true)
+            for(int i = 0; i < inventory.Container.Count; i++)
             {
-                m_animation.Play();
-                if (hasEnemy)
+                if (inventory.Container[i].item.name == "Crowbar")
                 {
-                    //Activar al enemigo
-                } else if (!hasEnemy)
-                {
-                    capsuleCollider.enabled = true;
+                    m_animation.Play();
+                    if (hasEnemy)
+                    {
+                        //Activar al enemigo
+                    }
+                    else if (!hasEnemy)
+                    {
+                        capsuleCollider.enabled = true;
+                    }
                 }
             }
+
+            //if (inventario.palanca == true)
+            //{
+            //    m_animation.Play();
+            //    if (hasEnemy)
+            //    {
+            //        //Activar al enemigo
+            //    } else if (!hasEnemy)
+            //    {
+            //        capsuleCollider.enabled = true;
+            //    }
+            //}
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             playerIn = true;
             inventario = other.GetComponent<Inventarioimprovisado>();
@@ -52,7 +69,7 @@ public class Sarcofago : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             playerIn = false;
         }

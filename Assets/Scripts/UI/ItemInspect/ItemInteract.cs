@@ -37,7 +37,7 @@ public class ItemInteract : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             Debug.Log("Can Interact");
             canInteract = true;
@@ -47,7 +47,7 @@ public class ItemInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             Debug.Log("Can Not Interact");
             canInteract = false;

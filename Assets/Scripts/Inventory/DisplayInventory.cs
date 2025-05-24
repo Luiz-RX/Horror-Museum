@@ -12,23 +12,34 @@ public class DisplayInventory : MonoBehaviour
     public TextMeshProUGUI itemName;
     public GameObject button;
     public TextMeshProUGUI itemCount;
+    string currenttInventoryName;
+    string previousInventoryName = "";
+    bool hasUpdatedItem;
+    int invPosition;
 
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     void Start()
     {
         inventoryViewer = FindAnyObjectByType<Item3DViewerInventory>();
+        invPosition = 0; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        inventoryViewer.inspectItem(inventory.Container[0].item.prefab);
-        descriptionText.text = inventory.Container[0].item.description;
-        itemName.text = inventory.Container[0].item.name;
-        itemCount.text = "Count: " + inventory.Container[0].amount;
+        
+        currenttInventoryName = inventory.Container[invPosition].item.name;
+        if(previousInventoryName != currenttInventoryName)
+        {
+            inventoryViewer.inspectItem(inventory.Container[invPosition].item.prefab);
+            descriptionText.text = inventory.Container[invPosition].item.description;
+            itemName.text = inventory.Container[invPosition].item.name;
+            previousInventoryName = currenttInventoryName;
+        }
+        itemCount.text = "Count: " + inventory.Container[invPosition].amount;
 
 
-        if (inventory.Container[0].item.type == ItemType.Consumable)
+        if (inventory.Container[invPosition].item.type == ItemType.Consumable)
         {
             //Activar botón de usar
             button.SetActive(true);
@@ -41,5 +52,18 @@ public class DisplayInventory : MonoBehaviour
     public void CreateDisplay()
     {
 
+    }
+
+    public void NextItem()
+    {
+        invPosition++;
+        if (invPosition == inventory.Container.Count) invPosition = 0;
+    }
+
+    public void PreviousItem()
+    {
+
+        invPosition--;
+        if (invPosition < 0) invPosition = inventory.Container.Count-1;
     }
 }

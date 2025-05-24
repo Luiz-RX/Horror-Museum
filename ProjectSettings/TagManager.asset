@@ -8,6 +8,7 @@ TagManager:
   - Lampara
   - MiniBoss
   - Item
+  - ActivatorPuzzle
   layers:
   - Default
   - TransparentFX

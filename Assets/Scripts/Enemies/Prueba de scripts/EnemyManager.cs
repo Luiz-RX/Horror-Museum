@@ -36,4 +36,12 @@ public class EnemyManager : MonoBehaviour
             enemy.SetMove(true);
         }
     }
+
+    public void DeactivateMovement()
+    {
+        foreach (var enemy in allEnemies)
+        {
+            enemy.SetMove(false);
+        }
+    }
 }

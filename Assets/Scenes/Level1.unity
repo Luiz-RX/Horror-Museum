@@ -1452,7 +1452,7 @@ Transform:
   m_GameObject: {fileID: 99330689}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49884942, y: 0, z: 0, w: 0.86668867}
-  m_LocalPosition: {x: 9.35, y: 6.247647, z: 25.723211}
+  m_LocalPosition: {x: 9.35, y: 6.502646, z: 25.723211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9319,7 +9319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.08
+      value: 0.175
       objectReference: {fileID: 0}
     - target: {fileID: 1173385843884883617, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31749,7 +31749,7 @@ Transform:
   m_GameObject: {fileID: 1687157170}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49884942, y: 0, z: 0, w: 0.86668867}
-  m_LocalPosition: {x: 9.35, y: 6.247647, z: 25.723211}
+  m_LocalPosition: {x: 9.35, y: 6.502646, z: 25.723211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33279,7 +33279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.679691
+      value: 12.93469
       objectReference: {fileID: 0}
     - target: {fileID: 3881041459776304605, guid: 79368a155026622499c627cb74b4d377, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44175,7 +44175,7 @@ Transform:
   m_GameObject: {fileID: 919132147995331421}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5000107, y: 0.49998927, z: 0.49998948, w: 0.50001055}
-  m_LocalPosition: {x: -179.39108, y: 111.62469, z: 19.947653}
+  m_LocalPosition: {x: -179.3911, y: 111.6247, z: 19.947653}
   m_LocalScale: {x: 32.290604, y: 32.290604, z: 32.290604}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44282,7 +44282,6 @@ GameObject:
   - component: {fileID: 1711813854923123336}
   - component: {fileID: 3469287837643841093}
   - component: {fileID: 3469287837643841092}
-  - component: {fileID: 3469287837643841091}
   m_Layer: 0
   m_Name: Sfinge
   m_TagString: Untagged
@@ -45241,23 +45240,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147995331421}
   m_Mesh: {fileID: -2293574325918847014, guid: b4a1480c46913f9489b66190d1a20bf7, type: 3}
---- !u!111 &3469287837643841091
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147995331421}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 6d75f8a4b7a505a4483eccc4c73c039b, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 6d75f8a4b7a505a4483eccc4c73c039b, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!65 &3469287837643841092
 BoxCollider:
   m_ObjectHideFlags: 0

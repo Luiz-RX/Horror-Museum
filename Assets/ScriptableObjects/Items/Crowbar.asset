@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b453088b424354c9620dedaf6eec81, type: 3}
   m_Name: Crowbar
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5036616948599799860, guid: 811d66d855142724ba3373a23ee4ae51, type: 3}
+  prefab: {fileID: 6080011299038273964, guid: a013d6a6df71bd545b62dfa89ca3c232, type: 3}
   type: 0
   description: Adrian, Adrian, Adrian, le gusta comer pan y jugar al counter.

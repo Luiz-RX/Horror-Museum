@@ -3,13 +3,18 @@ using UnityEngine;
 public class DoorEgipt : MonoBehaviour
 {
     [SerializeField] private Animation animation;
+    
     public InventoryObject inventory;
     [SerializeField]private bool hasKeys;
-    private bool onColl;
+    private bool canInteract;
 
     private void Update()
     {
-        Interact();
+        if(canInteract)
+        {
+            Interact();
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,9 +23,16 @@ public class DoorEgipt : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            onColl = true;
-            
+            canInteract = true;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.CompareTag("Player"))
+        {
+            canInteract= false;
         }
     }
 
@@ -28,16 +40,16 @@ public class DoorEgipt : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //for (int i = 0; i < inventory.Container.Count; i++)
-            //{
-            //    if (inventory.Container[i].item.name == "Keys")
-            //    {
-            //        hasKeys = true;
-            //    }
-            //    else hasKeys = false;
-            //}
-            //if (hasKeys) 
-            animation.Play();
+            for (int i = 0; i < inventory.Container.Count; i++)
+            {
+                if (inventory.Container[i].item.name == "Keys")
+                {
+                    animation.Play();
+                    this.gameObject.SetActive(false);
+                }
+                
+            }
+            
 
         }
 

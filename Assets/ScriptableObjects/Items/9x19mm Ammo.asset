@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabd70c88d40b7f45a14cb03033997c3, type: 3}
   m_Name: 9x19mm Ammo
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7998714282833986985, guid: 5e84f9311ccb6df4a97f6582cd8eee40, type: 3}
+  prefab: {fileID: 5967425954670719992, guid: 9665af4a21c5ae549a3d1d06eae38e4d, type: 3}
   type: 1
   description: Munision
   ammount: 0

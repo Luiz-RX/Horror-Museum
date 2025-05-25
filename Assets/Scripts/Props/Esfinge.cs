@@ -3,10 +3,12 @@ using UnityEngine;
 public class Esfinge : MonoBehaviour
 {
     Animation animation;
+    Animator animator;
     bool canInteract;
     [SerializeField] InventoryObject inventory;
     private void Start()
     {
+        animator = GetComponentInParent<Animator>();
         animation = GetComponentInParent<Animation>();
     }
 
@@ -18,8 +20,8 @@ public class Esfinge : MonoBehaviour
             {
                 if (inventory.Container[i].item.name == "SphinxFinger")
                 {
-                    if (animation != null) animation.Play();
-                    else Debug.Log("no hay animacion de esfinge");
+                    animator.SetTrigger("Move");
+                    
                 }
             }
             //if (animation != null) animation.Play();

@@ -1,4 +1,6 @@
-﻿using System.IO.MemoryMappedFiles;
+﻿using JetBrains.Annotations;
+using System.IO.MemoryMappedFiles;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
@@ -16,6 +18,26 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] float rotateSpeed = 15f;
     public Rig rig;
     private PlayerAmmo ammo;
+    bool canShoot;
+    [SerializeField] float timeBetweenShots = 0.25f;
+    float timeUntilNextShot;
+    bool isReloading;
+
+    [SerializeField] AudioClip shotShound;
+    [SerializeField] AudioClip shotLowAmmoSound;
+    [SerializeField] AudioClip shotNoAmmoSound;
+
+    bool hasAimedFirstTime;
+    bool hasUnaimedFirstTime;
+    bool hasOpenedInventoryFirstTime;
+
+    public GameObject aimTutorialUI;
+    public GameObject inventoryTutorialUI;
+    public GameObject WASDAimTutorialUI;
+    
+
+    [SerializeField] GameObject glockHip;
+    [SerializeField] GameObject glockhand;
 
     Vector3 lookDirection;
     Vector3 rotatedDirection;
@@ -44,15 +66,44 @@ public class PlayerShoot : MonoBehaviour
         // Activar modo de apuntado con Click Derecho (Botón Secundario)
         if (Input.GetMouseButtonDown(1)) // Click derecho
         {
+            glockhand.SetActive(true);
+            glockHip.SetActive(false); 
             anim.SetBool("Aim", true);
             isAiming = true;
+
+            if(!hasAimedFirstTime)
+            {
+                aimTutorialUI.SetActive(false);
+                hasAimedFirstTime = true;
+                if (WASDAimTutorialUI != null)
+                {
+                    WASDAimTutorialUI.SetActive(true);
+                }
+            }
             
             // Mostrar crosshair
             //animator.SetBool("IsAiming", true); // Activar animación de apuntado
         }
+
+
+
+        if (Input.GetKeyDown(KeyCode.I) && !hasOpenedInventoryFirstTime)
+        {
+            if(!hasOpenedInventoryFirstTime)
+            {
+                inventoryTutorialUI.SetActive(false);
+                hasOpenedInventoryFirstTime = true;
+            }
+        }
+
         else if (Input.GetMouseButtonUp(1))
         {
-            
+            if (isReloading)
+            {
+                anim.SetTrigger("StopReload");
+            }
+            glockhand.SetActive(false);
+            glockHip.SetActive(true);
             anim.SetBool("Aim", false);
             isAiming = false;
             crosshairUI.SetActive(false); // Ocultar crosshair
@@ -62,71 +113,39 @@ public class PlayerShoot : MonoBehaviour
 
         if (isAiming)
         {
-            if (rig.weight < 0.99)
+            if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammo.ammo < 12 && ammo.extraAmmo != 0)
+            {
+                rig.weight = 0f;
+                isReloading = true;
+                anim.SetTrigger("Reload");
+                HideAimingUI();
+
+            }
+            if (rig.weight < 0.99 && !isReloading)
             {
                 rig.weight = Mathf.Lerp(rig.weight, 1.0f, 0.05f);
             } else
             {
-                crosshairUI.SetActive(true);
-                aimLine.SetActive(true);
+                if(!isReloading)
+                {
+                    crosshairUI.SetActive(true);
+                    aimLine.SetActive(true);
+                }
+                
             }
 
 
             float hInput = Input.GetAxis("Horizontal");
             float vInput = Input.GetAxis("Vertical");
 
-            //if (hInput > 0.1 && rayInicialPos.transform.rotation.eulerAngles.y < 45) 
-            //{
-            //    rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
-            //} else if (hInput < -0.1 && rayInicialPos.transform.rotation.eulerAngles.y > -45)
-            //{
-            //    rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
-            //}
-
-            //if (rayInicialPos.transform.rotation.eulerAngles.x <= 45 && rayInicialPos.transform.rotation.eulerAngles.x >= -45)
-            //{
-            //    rayInicialPos.transform.Rotate(-vInput * rotateSpeed * Time.deltaTime, 0, 0);
-            //}
+           
 
             rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
             rayInicialPos.transform.Rotate(-vInput * rotateSpeed * Time.deltaTime, 0, 0);
 
-            //float hInput = Input.GetAxis("Vertical");
-            //float vInput = Input.GetAxis("Horizontal");
+            
 
-            //if(hInput != 0)
-            //{
-            //    if(hInput >0)
-            //    {
-            //        Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
-            //         rotatedDirection = rotation * transform.forward;
-            //        //lookDirection = rotatedDirection;
-            //        Debug.Log("Rotate right");
-            //    } else
-            //    {
-            //        Quaternion rotation = Quaternion.AngleAxis(hInput * 45, Vector3.right);
-            //         rotatedDirection = rotation * transform.forward;
-            //        //lookDirection = rotatedDirection;
-            //        Debug.Log("Rotate left");
-            //    }
-
-            //} else if (vInput != 0)
-            //{
-            //    if (vInput > 0)
-            //    {
-            //        Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
-            //         rotatedDirection = rotation * transform.forward;
-            //        //lookDirection = rotatedDirection;
-            //    }
-            //    else
-            //    {
-            //        Quaternion rotation = Quaternion.AngleAxis(vInput * 30, Vector3.up);
-            //         rotatedDirection = rotation * transform.forward;
-            //        //lookDirection = rotatedDirection;
-            //    }
-            //}
-
-            //lookDirection = rotatedDirection;
+            
             Ray ray = new Ray(rayInicialPos.transform.position, rayInicialPos.transform.forward);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
@@ -139,25 +158,7 @@ public class PlayerShoot : MonoBehaviour
         if (!isAiming)
         {
             rayInicialPos.transform.rotation = this.transform.rotation;
-            //if (rayInicialPos .transform.rotation != Quaternion.Euler(0, 0, 0))
-            //{
-            //    if (rayInicialPos.transform.rotation.eulerAngles.y > 0)
-            //    {
-            //        rayInicialPos.transform.Rotate(0, -20f * Time.deltaTime, 0);
-            //    } else if (rayInicialPos.transform.rotation.eulerAngles.y < 0)
-            //    {
-            //        rayInicialPos.transform.Rotate(0, 20f * Time.deltaTime, 0);
-            //    }
-
-            //    if (rayInicialPos.transform.rotation.eulerAngles.x > 0)
-            //    {
-            //        rayInicialPos.transform.Rotate(-20f * Time.deltaTime, 0, 0);
-            //    }
-            //    else if (rayInicialPos.transform.rotation.eulerAngles.x < 0)
-            //    {
-            //        rayInicialPos.transform.Rotate(20f * Time.deltaTime, 0, 0);
-            //    } 
-            //}
+            
 
             Ray ray = new Ray(rayInicialPos.transform.position, rayInicialPos.transform.forward);
             //rayDirection = Vector3.forward;
@@ -174,27 +175,32 @@ public class PlayerShoot : MonoBehaviour
 
         }
         // Disparar con Click Izquierdo
-        if (isAiming && Input.GetMouseButtonDown(0))
+        if (isAiming && Input.GetMouseButtonDown(0) && ammo.ammo > 0 && timeUntilNextShot < Time.time)
         {
             Shoot();
+            timeUntilNextShot = Time.time + timeBetweenShots;
+            if(ammo.ammo > 5)
+            {
+                //Normal Sound
+                SoundFXManager.Instance.PlaySoundFXClip(shotShound, firePoint.transform, 1f);
+            } else
+            {
+                //Low bullets sound
+                SoundFXManager.Instance.PlaySoundFXClip(shotLowAmmoSound, firePoint.transform, 1f);
+            }
+        }
+
+        if (isAiming && Input.GetMouseButtonDown(0) && ammo.ammo == 0 && timeUntilNextShot < Time.time)
+        {
+            //Click sound
+            SoundFXManager.Instance.PlaySoundFXClip(shotNoAmmoSound, firePoint.transform, 1f);
+            timeUntilNextShot = Time.time + timeBetweenShots;
         }
     }
 
     void Shoot()
     {
-        // Raycast desde la cámara hacia el punto del crosshair en pantalla
-        //Vector3 crosshairScreenPos = crosshairTransform.position;
-        //Ray ray = Camera.main.ScreenPointToRay(crosshairScreenPos);
-
-        //Vector3 targetPoint;
-        //if (Physics.Raycast(ray, out RaycastHit hit))
-        //{
-        //    targetPoint = hit.point;
-        //}
-        //else
-        //{
-        //    targetPoint = ray.GetPoint(100f);
-        //}
+        
 
         Vector3 shootDirection = (aimPos.position - firePoint.position).normalized;
 
@@ -219,5 +225,21 @@ public class PlayerShoot : MonoBehaviour
 
         //aimPos.transform.position += input * crosshairMoveSpeed * Time.deltaTime;
         //crosshairTransform.anchoredPosition = pos;
+    }
+
+    public void FinishedReload()
+    {
+        isReloading = false;
+    }
+
+    void HideAimingUI()
+    {
+        crosshairUI.SetActive(false);
+        aimLine.SetActive(false);
+    }
+
+    void ShowAimingUI()
+    {
+
     }
 }

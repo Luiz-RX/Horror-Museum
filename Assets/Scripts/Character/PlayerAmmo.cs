@@ -3,13 +3,23 @@ using UnityEngine;
 public class PlayerAmmo : MonoBehaviour
 {
     public int ammo = 12;      
-    public int chamber = 24;   
+    public int extraAmmo;
+
+    public InventoryObject inventory;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Reload();
+        //}
+
+        for (int i = 0; i < inventory.Container.Count; i++)
         {
-            Reload();
+            if (inventory.Container[i].item.name == "9x19mm Ammo")
+            {
+                extraAmmo = inventory.Container[i].amount;
+            }
         }
     }
 
@@ -23,13 +33,19 @@ public class PlayerAmmo : MonoBehaviour
     {
         int neededAmmo = 12 - ammo;           
 
-        if (neededAmmo > 0 && chamber > 0)
+        if (neededAmmo > 0 && extraAmmo > 0)
         {
-            int ammoToLoad = Mathf.Min(neededAmmo, chamber); 
+            int ammoToLoad = Mathf.Min(neededAmmo, extraAmmo); 
             ammo += ammoToLoad;
-            chamber -= ammoToLoad;
+            //extraAmmo -= ammoToLoad;
+            for (int i = 0; i < inventory.Container.Count; i++)
+            {
+                if (inventory.Container[i].item.name == "9x19mm Ammo")
+                {
+                    inventory.Container[i].amount -= ammoToLoad;
+                }
+            }
 
-            
         }
         else
         {
@@ -39,6 +55,13 @@ public class PlayerAmmo : MonoBehaviour
 
     public void GiveAmmo(int ammoToGive)
     {
-        chamber += ammoToGive;
+        //extraAmmo += ammoToGive;
+        for (int i = 0; i < inventory.Container.Count; i++)
+        {
+            if (inventory.Container[i].item.name == "9x19mm Ammo")
+            {
+                inventory.Container[i].amount += ammoToGive;
+            }
+        }
     }
 }

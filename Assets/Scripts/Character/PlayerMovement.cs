@@ -15,10 +15,18 @@ public class PlayerMovement : MonoBehaviour
 
     public InventoryObject inventory;
     bool canPickupItem;
+    public ItemObject[] startingItems;
+    public ItemObject startingBullets;
+    
 
     
     void Start()
     {
+        for(int i = 0; i < startingItems.Length; i++)
+        {
+            inventory.AddItem(startingItems[i],1);
+        }
+        inventory.AddItem(startingBullets, 12);
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         //Provisional lock camera

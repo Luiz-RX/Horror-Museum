@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class Esfinge : MonoBehaviour
 {
-    Animation animation;
+    [SerializeField] AudioClip slideSound;
     Animator animator;
+    public Transform soundPos;
     bool canInteract;
     [SerializeField] InventoryObject inventory;
     private void Start()
     {
         animator = GetComponentInParent<Animator>();
-        animation = GetComponentInParent<Animation>();
+        
     }
 
     private void Update()
@@ -21,7 +22,7 @@ public class Esfinge : MonoBehaviour
                 if (inventory.Container[i].item.name == "SphinxFinger")
                 {
                     animator.SetTrigger("Move");
-                    
+                    SoundFXManager.Instance.PlaySoundFXClip(slideSound, soundPos, 1f);
                 }
             }
             //if (animation != null) animation.Play();

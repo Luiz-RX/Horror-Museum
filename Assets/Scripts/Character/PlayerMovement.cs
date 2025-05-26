@@ -17,11 +17,15 @@ public class PlayerMovement : MonoBehaviour
     bool canPickupItem;
     public ItemObject[] startingItems;
     public ItemObject startingBullets;
+    [SerializeField] AudioClip pickupItemSound;
+
+    
     
 
     
     void Start()
     {
+        
         for(int i = 0; i < startingItems.Length; i++)
         {
             inventory.AddItem(startingItems[i],1);
@@ -72,8 +76,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 inventory.AddItem(item.item, 1);
                 Destroy(item.gameObject);
+                SoundFXManager.Instance.PlaySoundFXClip(pickupItemSound, this.transform, 1f);
             }
         }
+
+       
     }
 
     public void PlayRandomStepSound()

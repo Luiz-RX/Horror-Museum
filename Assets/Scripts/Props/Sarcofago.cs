@@ -6,7 +6,8 @@ public class Sarcofago : MonoBehaviour
     [SerializeField] bool hasEnemy;
     private bool playerIn;
     private Inventarioimprovisado inventario;
-    [SerializeField] InventoryObject inventory; 
+    [SerializeField] InventoryObject inventory;
+    [SerializeField] AudioClip openSound;
 
     private EnemyAI enemyAI;
     private CapsuleCollider capsuleCollider;
@@ -32,6 +33,7 @@ public class Sarcofago : MonoBehaviour
             {
                 if (inventory.Container[i].item.name == "Crowbar")
                 {
+                    SoundFXManager.Instance.PlaySoundFXClip(openSound, this.transform, 1f);
                     m_animation.Play();
                     if (hasEnemy)
                     {

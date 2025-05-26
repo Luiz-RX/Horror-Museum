@@ -26,6 +26,10 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] AudioClip shotShound;
     [SerializeField] AudioClip shotLowAmmoSound;
     [SerializeField] AudioClip shotNoAmmoSound;
+    [SerializeField] AudioClip gunMagOut;
+    [SerializeField] AudioClip gunMagIn;
+    [SerializeField] AudioClip gunSlideBack;
+    [SerializeField] AudioClip gunSlideRelease;
 
     bool hasAimedFirstTime;
     bool hasUnaimedFirstTime;
@@ -241,5 +245,24 @@ public class PlayerShoot : MonoBehaviour
     void ShowAimingUI()
     {
 
+    }
+
+    
+
+    public void PlayGunSlideBackSound()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(gunSlideBack, firePoint.transform, 1f);
+    }
+    public void PlayGunSlideReleaseSound()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(gunSlideRelease, firePoint.transform, 1f);
+    }
+    public void PlayGunMagInSound()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(gunMagIn, firePoint.transform, 1f);
+    }
+    public void PlayGunMagOutSound()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(gunMagOut, firePoint.transform, 1f);
     }
 }

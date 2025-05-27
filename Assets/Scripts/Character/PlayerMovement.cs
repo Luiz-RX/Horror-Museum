@@ -76,6 +76,10 @@ public class PlayerMovement : MonoBehaviour
             if (item)
             {
                 inventory.AddItem(item.item, 1);
+                if(item.uiFeedBack != null)
+                {
+                    Destroy(item.uiFeedBack);
+                }
                 Destroy(item.gameObject);
                 SoundFXManager.Instance.PlaySoundFXClip(pickupItemSound, this.transform, 1f);
             }

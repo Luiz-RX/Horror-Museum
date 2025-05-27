@@ -10,6 +10,7 @@ public class CavernicolaMiniBoss : MonoBehaviour
     public float attackCooldown = 2f;
 
     public Collider keyColl;
+    public GameObject feedbackUI;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -35,7 +36,11 @@ public class CavernicolaMiniBoss : MonoBehaviour
 
     private void Update()
     {
-        if(isDead) keyColl.enabled = true;
+        if (isDead)
+        {
+            feedbackUI.SetActive(true);
+            keyColl.enabled = true;
+        }
 
         if (isDead || isVulnerable || !canMove || !playerInRoom)
         {

@@ -865,6 +865,9 @@ MonoBehaviour:
   canMove: 0
   roomName: Room 1
   attackRange: 1.5
+  attackSounds:
+  - {fileID: 8300000, guid: b6e3d7a425c41734191afeddf0f1cea1, type: 3}
+  - {fileID: 8300000, guid: 717f6ba990baedf48936b906e9371b97, type: 3}
   playerInRoom: 0
 --- !u!114 &7901392752843225762
 MonoBehaviour:

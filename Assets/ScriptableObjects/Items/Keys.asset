@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 612048976978531038, guid: 37d097cea58ef9d4a815ab1e4bccfcc3, type: 3}
   type: 0
-  description: Llaves de la sala de "Egipto"
+  description: A set of old security keys, slightly rusty. One key has a small tag
+    that says 'Egypt'. They look like they could open something important.

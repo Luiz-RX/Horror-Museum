@@ -3,6 +3,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public ItemObject item;
+    public GameObject uiFeedBack;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

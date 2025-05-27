@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -29,12 +30,11 @@ public class Menu : MonoBehaviour
                 Cursor.visible = true;
                 isMenuActive = true;
                 menuPanel.SetActive(true);
+                Time.timeScale = 0f;
             } else if (isMenuActive)
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                isMenuActive = false;
-                menuPanel.SetActive(false);
+                CloseMenu();
+               
             }
         }
 
@@ -56,5 +56,16 @@ public class Menu : MonoBehaviour
             vpHalfHealth.SetActive(false);
             vpLowHealth.SetActive(true);
         }
+
+        
+    }
+
+    public void CloseMenu()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        isMenuActive = false;
+        menuPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

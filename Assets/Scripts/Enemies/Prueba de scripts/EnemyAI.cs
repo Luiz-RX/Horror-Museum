@@ -13,7 +13,8 @@ public class EnemyAI : MonoBehaviour
     private Animator animator;
     bool isDead;
     int hitCount = 0;
-    
+
+    public AudioClip[] attackSounds;
 
     [SerializeField] private bool playerInRoom = false;
 
@@ -43,6 +44,7 @@ public class EnemyAI : MonoBehaviour
 
         if (distance <= attackRange)
         {
+            
             agent.isStopped = true;
             animator.SetTrigger("Attacking");
         }
@@ -105,5 +107,10 @@ public class EnemyAI : MonoBehaviour
     public void SetMove(bool t)
     {
         canMove = t;
+    }
+
+    public void playAttackSound()
+    {
+        SoundFXManager.Instance.PlayRandomSoundFXClip(attackSounds, this.transform, 1f);
     }
 }

@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 8471219786263348881, guid: 8c4e39b53f1aef44bb84a41929e49f48, type: 3}
   type: 0
-  description: A luis le encantan las esfinges, de hecho el bicho esfinge, parecido
-    a los colibris, es suy anomal preferido, ya que suele ser asociado con un ser
-    querido visitandote. Abre el esfinge.
+  description: 

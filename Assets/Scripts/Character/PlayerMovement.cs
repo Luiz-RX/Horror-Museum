@@ -75,7 +75,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (item)
             {
-                inventory.AddItem(item.item, 1);
+                if (item.ammount == 0)
+                {
+                    item.ammount = 1;
+                }
+                inventory.AddItem(item.item, item.ammount);
                 if(item.uiFeedBack != null)
                 {
                     Destroy(item.uiFeedBack);

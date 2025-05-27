@@ -9,6 +9,8 @@ public class CavernicolaMiniBoss : MonoBehaviour
     public float stopDistance = 2f;
     public float attackCooldown = 2f;
 
+    public Collider keyColl;
+
     private NavMeshAgent agent;
     private Animator animator;
     public Animator Door;
@@ -33,6 +35,8 @@ public class CavernicolaMiniBoss : MonoBehaviour
 
     private void Update()
     {
+        if(isDead) keyColl.enabled = true;
+
         if (isDead || isVulnerable || !canMove || !playerInRoom)
         {
             agent.isStopped = true;

@@ -5,6 +5,8 @@ public class Health : MonoBehaviour
     public int health = 6;
     private Animator animator;
     private CharacterController characterController;
+    public bool isDead;
+    public GameObject deathUI;
 
     private void Start()
     {
@@ -19,6 +21,8 @@ public class Health : MonoBehaviour
         {
             animator.SetBool("Die", true);
             characterController.enabled = false;
+            isDead = true;
+            deathUI.SetActive(true);
         }
         health -= damage;
     }

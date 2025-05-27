@@ -6,7 +6,7 @@ public class OpenSettingsMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
 
-    public bool isMenuOpen;
+    public bool isPaused;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +18,7 @@ public class OpenSettingsMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isMenuOpen)
+            if (!isPaused)
             {
                PauseGame();
                 
@@ -28,7 +28,7 @@ public class OpenSettingsMenu : MonoBehaviour
             }
         }
 
-        if (!settings.settingsUI.activeInHierarchy && isMenuOpen && !pauseMenuUI.activeInHierarchy)
+        if (!settings.settingsUI.activeInHierarchy && isPaused && !pauseMenuUI.activeInHierarchy)
         {
             pauseMenuUI.SetActive(true);
         }
@@ -47,7 +47,7 @@ public class OpenSettingsMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
-        isMenuOpen = true;
+        isPaused = true;
     }
 
     public void UnpauseGame()
@@ -57,7 +57,7 @@ public class OpenSettingsMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         settings.settingsUI.SetActive(false);
-        isMenuOpen = false;
+        isPaused = false;
     }
 
     public void GoBackToMainMenu(string sceneName)

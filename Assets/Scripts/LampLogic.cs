@@ -8,6 +8,8 @@ public class LampLogic : MonoBehaviour
     [HideInInspector] public Animator anim;
     InteractLever lever;
     [SerializeField] AudioClip returnSound;
+    [SerializeField] AudioClip chainFallSound;
+    [SerializeField] AudioClip bonk;
     CavernicolaMiniBoss miniboss;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +44,14 @@ public class LampLogic : MonoBehaviour
     void PlayReturnSound()
     {
         SoundFXManager.Instance.PlaySoundFXClip(returnSound, this.transform, 1f);
+    }
+    void PlayFallSound()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(chainFallSound, this.transform, 1f);
+    }
+    void PlayHitSound()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(bonk, this.transform, 1f);
     }
 
 

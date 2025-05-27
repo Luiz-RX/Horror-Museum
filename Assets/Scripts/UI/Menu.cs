@@ -9,6 +9,9 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject vpHalfHealth;
     [SerializeField] GameObject vpLowHealth;
 
+    public OpenSettingsMenu openSettingsMenu;
+    public Health health;
+
     Health plHealth;
 
     private void Start()
@@ -18,7 +21,7 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && health.isDead == false && !openSettingsMenu.isPaused)
         {
             if (!isMenuActive)
             {

@@ -14196,19 +14196,7 @@ MonoBehaviour:
   persistentLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  rooms:
-  - name: Room 1
-    rootObject: {fileID: 276579877}
-    lights: []
-    layerName: Room 1
-  - name: Room 2
-    rootObject: {fileID: 1027966472}
-    lights: []
-    layerName: Room 2
-  - name: Room 3
-    rootObject: {fileID: 1333701955}
-    lights: []
-    layerName: Room 3
+  rooms: []
 --- !u!4 &813918343
 Transform:
   m_ObjectHideFlags: 0

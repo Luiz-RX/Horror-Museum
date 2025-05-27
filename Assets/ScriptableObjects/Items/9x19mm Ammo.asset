@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5967425954670719992, guid: 9665af4a21c5ae549a3d1d06eae38e4d, type: 3}
   type: 1
-  description: Munision
+  description: "Munici\xF3n"
   ammount: 0

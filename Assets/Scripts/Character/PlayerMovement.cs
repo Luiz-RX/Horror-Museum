@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-        
+
+        Time.timeScale = 1f;
         for(int i = 0; i < startingItems.Length; i++)
         {
             inventory.AddItem(startingItems[i],1);

@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float forwardSpeed = 3.5f;  // Velocidad al avanzar
     public float backwardSpeed = 1.75f; // Velocidad al retroceder (más lenta)
     public float rotationSpeed = 150f; // Velocidad de rotación en grados por segundo
+    public float gravity = 9.8f;
     private CharacterController controller;
     private Animator animator;
     private PlayerShoot playerShoot;
@@ -65,7 +66,15 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = (moveDirection > 0) ? forwardSpeed : backwardSpeed;
 
         Vector3 move = transform.forward * moveDirection * currentSpeed * Time.deltaTime;
+
+        if (!controller.isGrounded)
+        {
+            move -= new Vector3(0, gravity * Time.deltaTime, 0);
+        }
+
         controller.Move(move);
+
+       
 
         // Rotación izquierda / derecha (A/D)
         float rotation = Input.GetAxis("Horizontal"); // A (-1) / D (1)

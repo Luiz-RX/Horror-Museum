@@ -5,6 +5,7 @@ public class RotateStatue : MonoBehaviour
 {
     public bool canRotate;
     float rotateAmmount = 60f;
+    public bool hasActivated;
 
     private Vector3 currentAngle;
     private Vector3 targetAngle;
@@ -45,6 +46,9 @@ public class RotateStatue : MonoBehaviour
     IEnumerator RotateCooldown()
     {
         yield return new WaitForSeconds(2.5f);
+        if(!hasActivated)
+        {
         canRotate = true;
+        }
     }
 }

@@ -8,6 +8,7 @@ public class CameraCameraZoom : MonoBehaviour
 {
     public GameObject playerCam;
     public GameObject interactCam;
+    public GameObject interactCam2;
 
     public TextMeshProUGUI textoSalaCamara;
 
@@ -21,7 +22,10 @@ public class CameraCameraZoom : MonoBehaviour
 
     public CinemachineBrain mainCamBrain;
 
+    public int securityCam;
+
     int activeCam = 1;
+    int activeSecurityCam;
 
     bool isWatchingCams;
     bool canInteract;
@@ -39,6 +43,7 @@ public class CameraCameraZoom : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                activeSecurityCam = securityCam;
                 //Change cam and enable buttons
                 SetCursorLock();
                 ChangeCam();
@@ -102,6 +107,7 @@ public class CameraCameraZoom : MonoBehaviour
         {
             playerCam.SetActive(true);
             interactCam.SetActive(false);
+            interactCam2.SetActive(false);
             for (int i =0; i < uiButtons.Length; i++) 
             {
                 uiButtons[i].SetActive(false);
@@ -169,7 +175,14 @@ public class CameraCameraZoom : MonoBehaviour
         {
             cameras[i].SetActive(false);
         }
+        if (activeSecurityCam == 1)
+        {
+
         interactCam.SetActive(true);
+        } else
+        {
+            interactCam2.SetActive(true);
+        }
         DefaultCam();
         ActivateCamUI();
         camWatchUI.SetActive(false);

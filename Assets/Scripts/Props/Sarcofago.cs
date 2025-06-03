@@ -8,6 +8,9 @@ public class Sarcofago : MonoBehaviour
     private Inventarioimprovisado inventario;
     [SerializeField] InventoryObject inventory;
     [SerializeField] AudioClip openSound;
+    public Collider itemCollider;
+    bool hasActivated;
+
 
     private EnemyAI enemyAI;
     private CapsuleCollider capsuleCollider;
@@ -22,7 +25,6 @@ public class Sarcofago : MonoBehaviour
         else if (!hasEnemy)
         {
             capsuleCollider = GetComponentInChildren<CapsuleCollider>();
-            
         }
     }
     private void Update()
@@ -31,8 +33,10 @@ public class Sarcofago : MonoBehaviour
         {
             for(int i = 0; i < inventory.Container.Count; i++)
             {
-                if (inventory.Container[i].item.name == "Crowbar")
+                if (inventory.Container[i].item.name == "Crowbar" && !hasActivated)
                 {
+                    
+                    hasActivated = true;
                     SoundFXManager.Instance.PlaySoundFXClip(openSound, this.transform, 1f);
                     m_animation.Play();
                     if (hasEnemy)
@@ -65,7 +69,7 @@ public class Sarcofago : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIn = true;
-            inventario = other.GetComponent<Inventarioimprovisado>();
+            
         }
     }
 
@@ -74,6 +78,14 @@ public class Sarcofago : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIn = false;
+        }
+    }
+
+    public void ActivateItemCollider()
+    {
+        if(itemCollider != null)
+        {
+            itemCollider.enabled = true;
         }
     }
 }

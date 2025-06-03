@@ -29,7 +29,12 @@ public class Health : MonoBehaviour
 
     public int GiveHealth(int healthGiven)
     {
-        return health =+ healthGiven;
+        health =+ healthGiven;
+        if (health > 6)
+        {
+            health = 6;
+        }
+        return health;
 
     }
 }

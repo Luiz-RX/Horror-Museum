@@ -16,10 +16,12 @@ public class DisplayInventory : MonoBehaviour
     string previousInventoryName = "";
     bool hasUpdatedItem;
     int invPosition;
+    Health plHealth;
 
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
     void Start()
     {
+        plHealth = FindAnyObjectByType<Health>();
         inventoryViewer = FindAnyObjectByType<Item3DViewerInventory>();
         invPosition = 0; 
     }
@@ -37,6 +39,14 @@ public class DisplayInventory : MonoBehaviour
             previousInventoryName = currenttInventoryName;
         }
         itemCount.text = "Count: " + inventory.Container[invPosition].amount;
+
+        if (itemName.text == "First Aid Kit")
+        {
+            button.SetActive(true);
+        } else
+        {
+            button.SetActive(false);
+        }
 
 
         if (inventory.Container[invPosition].item.type == ItemType.Consumable)
@@ -65,5 +75,20 @@ public class DisplayInventory : MonoBehaviour
 
         invPosition--;
         if (invPosition < 0) invPosition = inventory.Container.Count-1;
+    }
+
+    public void HealPlayer()
+    {
+        if(inventory.Container[invPosition].amount > 0)
+        {
+        plHealth.GiveHealth(6);
+            inventory.Container[invPosition].amount -= 1;
+        }
+
+        if (inventory.Container[invPosition].amount <= 0)
+        {
+            inventory.Container.RemoveAt(invPosition);
+            //invPosition -= 1;
+        }
     }
 }

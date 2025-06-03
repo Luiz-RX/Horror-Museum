@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class TeleportPlayer : MonoBehaviour
 {
     public GameObject teleportPosition;
     public GameObject player;
-    public GameObject fadePanel;
+    public Animator fadePanel;
     PlayerMovement playerMovement;
     new Vector3 tpPos;
     CharacterController characterController;
@@ -18,10 +19,22 @@ public class TeleportPlayer : MonoBehaviour
 
     
 
-    void Teleport()
+    public void Teleport()
+    {
+        
+        player.transform.position = tpPos;
+
+        
+    }
+
+    public void DisableMovement()
     {
         characterController.enabled = false;
-        player.transform.position = tpPos;
+
+    }
+
+    public void EnableMovement()
+    {
         characterController.enabled = true;
     }
 
@@ -29,9 +42,19 @@ public class TeleportPlayer : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Luis es un guarro");
-            Teleport();
+
+            fadePanel.SetTrigger("Play");
+            StartCoroutine(TeleportSequence());
             //other.gameObject.transform.position += tpPos;
         }
+    }
+
+    IEnumerator TeleportSequence()
+    {
+        DisableMovement();
+        yield return new WaitForSeconds(0.75f);
+        Teleport();
+        yield return new WaitForSeconds(0.75f);
+        EnableMovement();
     }
 }

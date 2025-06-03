@@ -68,4 +68,6 @@ public class Menu : MonoBehaviour
         menuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
+
+    
 }

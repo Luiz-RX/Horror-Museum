@@ -1,21 +1,26 @@
 using UnityEngine;
 
-public class StatueActivator : MonoBehaviour
+public class ActivateStatueCollider : MonoBehaviour
 {
+
     bool canInteract;
-    public RotateStatue rtStatue;
-    
+    public GameObject statueCollider;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        canInteract = false;
+        
     }
 
-    
+    // Update is called once per frame
     void Update()
     {
-        if(canInteract && Input.GetKeyDown(KeyCode.E))
+        if (canInteract)
         {
-            rtStatue.Rotate();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                statueCollider.SetActive(true);
+
+            }
         }
     }
 
@@ -23,15 +28,19 @@ public class StatueActivator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             canInteract = true;
         }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            
             canInteract = false;
+            
         }
     }
 }

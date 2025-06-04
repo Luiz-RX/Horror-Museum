@@ -4,6 +4,7 @@ public class Esfinge : MonoBehaviour
 {
     [SerializeField] AudioClip slideSound;
     Animator animator;
+    bool hasPlayed;
     public Transform soundPos;
     bool canInteract;
     [SerializeField] InventoryObject inventory;
@@ -19,10 +20,15 @@ public class Esfinge : MonoBehaviour
         {
             for (int i = 0; i < inventory.Container.Count; i++)
             {
-                if (inventory.Container[i].item.name == "SphinxFinger")
+                if (inventory.Container[i].item.name == "Sphinx Finger")
                 {
-                    animator.SetTrigger("Move");
-                    SoundFXManager.Instance.PlaySoundFXClip(slideSound, soundPos, 1f);
+                    if(!hasPlayed)
+                    {
+                        animator.SetTrigger("Move");
+                        SoundFXManager.Instance.PlaySoundFXClip(slideSound, soundPos, 1f);
+                        hasPlayed = true;
+                    }
+                    
                 }
             }
             //if (animation != null) animation.Play();

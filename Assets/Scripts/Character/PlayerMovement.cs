@@ -26,7 +26,10 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-
+        for(int i = 0; i < inventory.Container.Count; i++)
+        {
+            inventory.Container.RemoveAt(i);
+        }
         Time.timeScale = 1f;
         for(int i = 0; i < startingItems.Length; i++)
         {

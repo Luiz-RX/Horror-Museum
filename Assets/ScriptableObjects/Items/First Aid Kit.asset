@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4206239763321580854, guid: 9af7c3824bce6db449c089839b7c5036, type: 3}
   type: 2
-  description: 
+  description: A compact med kit with a red cross on the cover. Useful for patching
+    up wounds in a tough spot.
   restoreHealthValue: 6

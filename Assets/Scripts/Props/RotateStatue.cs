@@ -28,9 +28,9 @@ public class RotateStatue : MonoBehaviour
 
         this.transform.eulerAngles = currentAngle;
 
-        if(Input.GetKeyDown(KeyCode.E)) {
-            Rotate();
-        }
+        //if(Input.GetKeyDown(KeyCode.E)) {
+        //    Rotate();
+        //}
     }
 
     public void Rotate()

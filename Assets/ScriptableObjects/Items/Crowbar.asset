@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6080011299038273964, guid: a013d6a6df71bd545b62dfa89ca3c232, type: 3}
   type: 0
-  description: 
+  description: A sturdy crowbar with chipped red paint. It looks strong enough to
+    pry open locked doors or crates.

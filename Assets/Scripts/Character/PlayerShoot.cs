@@ -32,6 +32,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] AudioClip gunMagIn;
     [SerializeField] AudioClip gunSlideBack;
     [SerializeField] AudioClip gunSlideRelease;
+    [SerializeField] ParticleSystem muzzleFlash;
 
     bool hasAimedFirstTime;
     bool hasUnaimedFirstTime;
@@ -196,6 +197,7 @@ public class PlayerShoot : MonoBehaviour
         // Disparar con Click Izquierdo
         if (isAiming && Input.GetButtonDown("Fire1") && ammo.ammo > 0 && timeUntilNextShot < Time.time)
         {
+            if (muzzleFlash != null) muzzleFlash.Play();
             Shoot();
             timeUntilNextShot = Time.time + timeBetweenShots;
             if(ammo.ammo > 5)

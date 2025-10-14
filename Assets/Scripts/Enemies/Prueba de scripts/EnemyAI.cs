@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,10 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     private Transform player;
     private Animator animator;
+    [SerializeField] private Color flashColor;
+    [SerializeField] private float flashTime = 0.1f;
+    private SkinnedMeshRenderer skinnedMeshRenderer;
+    private Material material;
     bool isDead;
     int hitCount = 0;
 
@@ -18,7 +23,11 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private bool playerInRoom = false;
 
-
+    private void Awake()
+    {
+        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        material = skinnedMeshRenderer.material;
+    }
 
     private void Start()
     {
@@ -56,10 +65,42 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private IEnumerator DamageFlash()
+    {
+        SetFlashColor();
+        float currentFlashAmount = 0f;
+        float elapsedTime = 0f;
+        while (elapsedTime < flashTime) 
+        { 
+            elapsedTime += Time.deltaTime;
+
+            currentFlashAmount = Mathf.Lerp(1f, 0f, elapsedTime / flashTime);
+            SetFlashAmount(currentFlashAmount);
+
+            yield return null;
+        }
+    }
+
+    public void CallDamageFlash()
+    {
+        StartCoroutine(DamageFlash());
+    }
+
+    private void SetFlashColor()
+    {
+        material.SetColor("_FlashColor", flashColor);
+    }
+
+    private void SetFlashAmount(float amount)
+    {
+        material.SetFloat("_FlashAmmount", amount);
+    }
+
     public void RegisterHit()
     {
         if (isDead) return;
 
+        CallDamageFlash();
         hitCount++;
 
         if (hitCount >= 4)

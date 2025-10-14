@@ -865,6 +865,8 @@ MonoBehaviour:
   canMove: 0
   roomName: Room 1
   attackRange: 1.5
+  flashColor: {r: 0.9150943, g: 0.43596473, b: 0.43596473, a: 1}
+  flashTime: 0.2
   attackSounds:
   - {fileID: 8300000, guid: b6e3d7a425c41734191afeddf0f1cea1, type: 3}
   - {fileID: 8300000, guid: 717f6ba990baedf48936b906e9371b97, type: 3}
@@ -1591,7 +1593,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -3782597611523270972, guid: 9944f95166d66994fbb19a64770edc3b, type: 3}
-  - {fileID: 2100000, guid: 5d89a5c5cc327b842ad22206d0ead928, type: 2}
+  - {fileID: 2100000, guid: f1ecfd39a0795c9408a8a543f5910ee6, type: 2}
   - {fileID: -3057381055871640688, guid: 9944f95166d66994fbb19a64770edc3b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0

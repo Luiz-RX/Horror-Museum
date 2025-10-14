@@ -16,6 +16,8 @@ public class PlayerShoot : MonoBehaviour
     public float bulletSpeed = 300f;
     public Transform rayInicialPos;
     [SerializeField] float rotateSpeed = 15f;
+    [SerializeField] float maxAimAngleX = 25f;
+    [SerializeField] float maxAimAngleY = 37.5f;
     public Rig rig;
     private PlayerAmmo ammo;
     bool canShoot;
@@ -68,7 +70,7 @@ public class PlayerShoot : MonoBehaviour
     {
         
         // Activar modo de apuntado con Click Derecho (Botón Secundario)
-        if (Input.GetMouseButtonDown(1)) // Click derecho
+        if (Input.GetButtonDown("Fire2")) // Click derecho
         {
             glockhand.SetActive(true);
             glockHip.SetActive(false); 
@@ -100,7 +102,7 @@ public class PlayerShoot : MonoBehaviour
             }
         }
 
-        else if (Input.GetMouseButtonUp(1))
+        else if (Input.GetButtonUp("Fire2"))
         {
             if (isReloading)
             {
@@ -117,7 +119,7 @@ public class PlayerShoot : MonoBehaviour
 
         if (isAiming)
         {
-            if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammo.ammo < 12 && ammo.extraAmmo != 0)
+            if (Input.GetButtonDown("Reload") && !isReloading && ammo.ammo < 12 && ammo.extraAmmo != 0)
             {
                 rig.weight = 0f;
                 isReloading = true;
@@ -143,13 +145,26 @@ public class PlayerShoot : MonoBehaviour
             float vInput = Input.GetAxis("Vertical");
 
            
-
-            rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
-            rayInicialPos.transform.Rotate(-vInput * rotateSpeed * Time.deltaTime, 0, 0);
-
+            
             
 
-            
+            Vector3 currentEuler = rayInicialPos.localEulerAngles;
+
+            currentEuler.x = NormalizeAngle(currentEuler.x);
+            currentEuler.y = NormalizeAngle(currentEuler.y);
+
+            //rayInicialPos.transform.Rotate(0, hInput * rotateSpeed * Time.deltaTime, 0);
+            //rayInicialPos.transform.Rotate(-vInput * rotateSpeed * Time.deltaTime, 0, 0);
+
+            currentEuler.x += -vInput * rotateSpeed * Time.deltaTime;
+            currentEuler.y += hInput * rotateSpeed * Time.deltaTime;
+
+            currentEuler.x = Mathf.Clamp(currentEuler.x, -maxAimAngleX, maxAimAngleX);
+            currentEuler.y = Mathf.Clamp(currentEuler.y, -maxAimAngleY, maxAimAngleY);
+
+            rayInicialPos.localEulerAngles = currentEuler;
+
+
             Ray ray = new Ray(rayInicialPos.transform.position, rayInicialPos.transform.forward);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
@@ -179,7 +194,7 @@ public class PlayerShoot : MonoBehaviour
 
         }
         // Disparar con Click Izquierdo
-        if (isAiming && Input.GetMouseButtonDown(0) && ammo.ammo > 0 && timeUntilNextShot < Time.time)
+        if (isAiming && Input.GetButtonDown("Fire1") && ammo.ammo > 0 && timeUntilNextShot < Time.time)
         {
             Shoot();
             timeUntilNextShot = Time.time + timeBetweenShots;
@@ -194,7 +209,7 @@ public class PlayerShoot : MonoBehaviour
             }
         }
 
-        if (isAiming && Input.GetMouseButtonDown(0) && ammo.ammo == 0 && timeUntilNextShot < Time.time)
+        if (isAiming && Input.GetButtonDown("Fire1") && ammo.ammo == 0 && timeUntilNextShot < Time.time)
         {
             //Click sound
             SoundFXManager.Instance.PlaySoundFXClip(shotNoAmmoSound, firePoint.transform, 1f);
@@ -202,6 +217,12 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
+
+    private float NormalizeAngle(float angle)
+    {
+        if (angle > 180f) angle -= 360f;
+        return angle;
+    }
     void Shoot()
     {
         

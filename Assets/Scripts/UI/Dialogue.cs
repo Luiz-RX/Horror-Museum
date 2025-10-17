@@ -1,23 +1,29 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEditor;
 
 public class Dialogue : MonoBehaviour
 {
-    public TextMeshProUGUI textMeshProUGUI;
+   public TextMeshProUGUI textMeshProUGUI;
     public string[] lines;
-    public float textSpeeed;
+    public float textSpeed = 0.05f;
+
+    [Header("Audio Settings")]
+    public AudioSource audioSource;
+    public AudioClip voiceClip;   // pequeño clip tipo "blip"
+    public float pitchMin = 0.9f;
+    public float pitchMax = 1.3f;
+    public float volume = 0.4f;
 
     private int index;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         textMeshProUGUI.text = string.Empty;
         StartDialogue();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -32,14 +38,12 @@ public class Dialogue : MonoBehaviour
                 textMeshProUGUI.text = lines[index];
             }
         }
-
     }
 
     void StartDialogue()
     {
         index = 0;
         StartCoroutine(TypeLine());
-
     }
 
     IEnumerator TypeLine()
@@ -47,8 +51,15 @@ public class Dialogue : MonoBehaviour
         foreach (char c in lines[index].ToCharArray())
         {
             textMeshProUGUI.text += c;
-            yield return new WaitForSeconds(textSpeeed);
 
+            // 🔊 Sonido tipo Animal Crossing
+            if (char.IsLetterOrDigit(c)) // evita que suene con espacios o signos
+            {
+                audioSource.pitch = Random.Range(pitchMin, pitchMax);
+                audioSource.PlayOneShot(voiceClip, volume);
+            }
+
+            yield return new WaitForSeconds(textSpeed);
         }
     }
 
@@ -58,11 +69,11 @@ public class Dialogue : MonoBehaviour
         {
             index++;
             textMeshProUGUI.text = string.Empty;
-            StartCoroutine (TypeLine());
+            StartCoroutine(TypeLine());
         }
         else
         {
             gameObject.SetActive(false);
         }
-     }
+    }
 }

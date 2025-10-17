@@ -11702,7 +11702,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483676470}
-  - component: {fileID: 483676469}
   m_Layer: 0
   m_Name: MoothySatty (2)
   m_TagString: Untagged
@@ -11710,19 +11709,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!114 &483676469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483676468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035e36d6db2aaff47a8b60435c16bd95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  number: {fileID: 0}
 --- !u!4 &483676470
 Transform:
   m_ObjectHideFlags: 0
@@ -62770,7 +62756,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000525271}
-  - component: {fileID: 2000525270}
   m_Layer: 0
   m_Name: MoothySatty (1)
   m_TagString: Untagged
@@ -62778,19 +62763,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!114 &2000525270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000525269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035e36d6db2aaff47a8b60435c16bd95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  number: {fileID: 0}
 --- !u!4 &2000525271
 Transform:
   m_ObjectHideFlags: 0
@@ -69964,7 +69936,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1392452822810799964}
-  - component: {fileID: 9031368351362362586}
   m_Layer: 0
   m_Name: MoothySatty
   m_TagString: Untagged
@@ -72222,19 +72193,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6111806427604451294}
   m_Mesh: {fileID: -6360558719573625917, guid: ea0f48cb63ad98a43abc47d695b5ee9b, type: 3}
---- !u!114 &9031368351362362586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4914306335150917077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035e36d6db2aaff47a8b60435c16bd95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  number: {fileID: 0}
 --- !u!33 &9128030321016044219
 MeshFilter:
   m_ObjectHideFlags: 0

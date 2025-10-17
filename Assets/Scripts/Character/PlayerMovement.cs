@@ -59,7 +59,11 @@ public class PlayerMovement : MonoBehaviour
         //    }
         //}
 
-        if (playerShoot != null && playerShoot.isAiming) return;
+        if (playerShoot != null && playerShoot.isAiming)
+        {
+            animator.SetFloat("MoveY", 0);
+            return;
+        }
         // Detectar entrada de movimiento (W/S)
         float moveDirection = Input.GetAxis("Vertical"); // W (1) / S (-1)
 

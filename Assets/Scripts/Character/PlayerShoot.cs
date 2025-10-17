@@ -231,6 +231,8 @@ public class PlayerShoot : MonoBehaviour
 
         Vector3 shootDirection = (aimPos.position - firePoint.position).normalized;
 
+        FindAnyObjectByType<CinemachineShake>().ShakeCamera(.7f, .3f);
+
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.linearVelocity = shootDirection * bulletSpeed;

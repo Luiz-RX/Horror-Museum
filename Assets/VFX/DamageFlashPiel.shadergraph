@@ -264,8 +264,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -639.0001220703125,
-            "y": -164.00001525878907,
+            "x": -552.0,
+            "y": -136.00001525878907,
             "width": 133.0,
             "height": 33.99998474121094
         }
@@ -413,10 +413,10 @@
     "m_Guid": {
         "m_GuidSerialized": "695b496b-a5e8-4013-82e1-a5bcb3208583"
     },
-    "m_Name": "FlashAmmount",
+    "m_Name": "FlashAmount",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "FlashAmmount",
-    "m_DefaultReferenceName": "_FlashAmmount",
+    "m_RefNameGeneratedByDisplayName": "FlashAmount",
+    "m_DefaultReferenceName": "_FlashAmount",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -520,10 +520,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -594.0807495117188,
-            "y": -90.01222229003906,
-            "width": 0.0,
-            "height": 0.0
+            "x": -582.0,
+            "y": -76.00000762939453,
+            "width": 142.99996948242188,
+            "height": 34.000003814697269
         }
     },
     "m_Slots": [
@@ -683,9 +683,9 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 1.0,
-        "g": 0.31603771448135378,
-        "b": 0.31603771448135378,
+        "r": 0.849056601524353,
+        "g": 0.849056601524353,
+        "b": 0.849056601524353,
         "a": 1.0
     },
     "isMainColor": false,
@@ -762,10 +762,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -738.0001220703125,
-            "y": 12.0,
-            "width": 138.0,
-            "height": 33.999996185302737
+            "x": -792.0001220703125,
+            "y": -76.0,
+            "width": 128.0,
+            "height": 33.99999237060547
         }
     },
     "m_Slots": [
@@ -798,10 +798,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -714.0001220703125,
-            "y": -32.000003814697269,
-            "width": 208.0,
-            "height": 435.0
+            "x": -647.0,
+            "y": -16.999996185302736,
+            "width": 207.99996948242188,
+            "height": 435.0000305175781
         }
     },
     "m_Slots": [
@@ -971,7 +971,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"918979649046a434c85c4ceed22ba877\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"8df8a36d1d1b09b45a262e48dae94df8\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -1364,7 +1364,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "f3140c7fe57c4feb824408303869de7a",
     "m_Id": 0,
-    "m_DisplayName": "FlashAmmount",
+    "m_DisplayName": "FlashAmount",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",

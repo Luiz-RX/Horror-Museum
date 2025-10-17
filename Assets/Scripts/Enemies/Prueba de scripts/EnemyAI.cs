@@ -14,19 +14,25 @@ public class EnemyAI : MonoBehaviour
     private Animator animator;
     [SerializeField] private Color flashColor;
     [SerializeField] private float flashTime = 0.1f;
-    private SkinnedMeshRenderer skinnedMeshRenderer;
-    private Material material;
+    [SerializeField] private SkinnedMeshRenderer skinnedMeshRenderer;
+    [SerializeField] private Material[] material;
     bool isDead;
     int hitCount = 0;
 
     public AudioClip[] attackSounds;
+    private Coroutine _damageFlashCoroutine;
 
     [SerializeField] private bool playerInRoom = false;
 
     private void Awake()
     {
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-        material = skinnedMeshRenderer.material;
+        //material = skinnedMeshRenderer.materials;
+        material = skinnedMeshRenderer.materials;
+        //for (int i=0; i< skinnedMeshRenderer.materials.Length; i++)
+        //{
+        //    material[i] = skinnedMeshRenderer.materials[i];
+        //}
     }
 
     private void Start()
@@ -67,7 +73,9 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator DamageFlash()
     {
+        Debug.Log("Flash");
         SetFlashColor();
+
         float currentFlashAmount = 0f;
         float elapsedTime = 0f;
         while (elapsedTime < flashTime) 
@@ -83,17 +91,26 @@ public class EnemyAI : MonoBehaviour
 
     public void CallDamageFlash()
     {
-        StartCoroutine(DamageFlash());
+        _damageFlashCoroutine = StartCoroutine(DamageFlash());
     }
 
     private void SetFlashColor()
     {
-        material.SetColor("_FlashColor", flashColor);
+        for (int i=0; i<material.Length; i++)
+        {
+            material[i].SetColor("_FlashColor", flashColor);
+        }
+        
     }
 
     private void SetFlashAmount(float amount)
     {
-        material.SetFloat("_FlashAmmount", amount);
+
+        for (int i = 0; i < material.Length; i++)
+        {
+            material[i].SetFloat("_FlashAmount", amount);
+        }
+       
     }
 
     public void RegisterHit()

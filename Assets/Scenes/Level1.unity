@@ -14985,6 +14985,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1727199167}
     - target: {fileID: 1392920035912613490, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
+      propertyPath: aimMask.m_Bits
+      value: 8065
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392920035912613490, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: gunSlideRelease
       value: 
       objectReference: {fileID: 8300000, guid: b0ba82cf6e9aa784dae516fec2e3ec8d, type: 3}
@@ -68174,6 +68178,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 1a6d6d9906502874099ac3348f71debb, type: 2}
+    - target: {fileID: 1951845001011083498, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2675592391727593269, guid: 899985923dc8ec14f815caf498f3ed6e, type: 3}
       propertyPath: m_Name
       value: MoothySatty

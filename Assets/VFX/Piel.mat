@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2616331641622697506
+--- !u!114 &-2604673668896912865
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_DamageFlash
-  m_Shader: {fileID: -6465566751694194690, guid: 0bf5210441eeb564abd7b376e0457b0d, type: 3}
+  m_Name: Piel
+  m_Shader: {fileID: -6465566751694194690, guid: dda07e3f797c2a643907050e517bd9aa, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 918979649046a434c85c4ceed22ba877, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8df8a36d1d1b09b45a262e48dae94df8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,11 +55,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FlashAmmount: 0
     - _FlashAmount: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _FlashColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FlashColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

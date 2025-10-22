@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Dialogue : MonoBehaviour
     [Header("Audio Settings")]
     public AudioSource audioSource;
     public AudioClip voiceClip;
+    public AudioClip walkieStart;
+    public AudioClip walkieStop;
     public float pitchMin = 0.9f;
     public float pitchMax = 1.3f;
     public float volume = 0.4f;
@@ -25,9 +28,11 @@ public class Dialogue : MonoBehaviour
 
     private int index;
     private Vector3 originalPos;
+    private Image panelImage;
 
     void Start()
     {
+        panelImage = GetComponent<Image>();
         textMeshProUGUI.text = string.Empty;
         textMeshProUGUI.enableWordWrapping = true;
         textMeshProUGUI.overflowMode = TextOverflowModes.Overflow;
@@ -35,7 +40,7 @@ public class Dialogue : MonoBehaviour
         if (dialoguePanel != null)
             originalPos = dialoguePanel.localPosition;
 
-        StartDialogue();
+        StartCoroutine(StartDialogue());
     }
 
     void Update()
@@ -54,8 +59,12 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    IEnumerator StartDialogue()
     {
+        yield return new WaitForSeconds(2f);
+        panelImage.enabled = true;
+        audioSource.PlayOneShot(walkieStart, volume);
+        yield return new WaitForSeconds(1f);
         index = 0;
         StartCoroutine(TypeLine());
     }
@@ -106,7 +115,15 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            StartCoroutine(EndDialogue());
+            
         }
+    }
+
+    IEnumerator EndDialogue()
+    {
+        audioSource.PlayOneShot(walkieStop, volume);
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
     }
 }

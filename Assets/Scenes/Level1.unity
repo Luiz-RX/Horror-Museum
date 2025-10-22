@@ -11920,7 +11920,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18141,10 +18141,12 @@ MonoBehaviour:
   textSpeed: 0.05
   audioSource: {fileID: 698059448}
   voiceClip: {fileID: 8300000, guid: 11eb6132903299841a81406c11b6cc11, type: 3}
+  walkieStart: {fileID: 8300000, guid: a2b008b8f76484c4a88eed109b352a31, type: 3}
+  walkieStop: {fileID: 8300000, guid: b9b0e9dc999e5304bb61d792a14946c3, type: 3}
   pitchMin: 0.9
   pitchMax: 1.3
   volume: 0.4
-  shakeIntensity: 3
+  shakeIntensity: 5
   shakeDuration: 0.05
 --- !u!114 &698059450
 MonoBehaviour:
@@ -18153,7 +18155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698059446}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -18166,7 +18168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c991560847312f04c8c34f24850fde3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9267e02d06d111145932d3ad9a3315a3, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

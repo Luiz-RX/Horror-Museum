@@ -14909,6 +14909,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 151572737783380186, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
+      propertyPath: health
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 151572737783380186, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: deathUI
       value: 
       objectReference: {fileID: 312862383}
@@ -15102,12 +15106,12 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 2a689c5eff4ae7347bf3f6f825cec89c, type: 2}
     - target: {fileID: 5529608311515397558, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: startingItems.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5529608311515397558, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: 'startingItems.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 57dd178f4a43e474a849acac78645c0e, type: 2}
+      objectReference: {fileID: 11400000, guid: 9ca40292d7ddfa44c975c5b726d8fb7b, type: 2}
     - target: {fileID: 5529608311515397558, guid: a934529ebfa3c3049aef449946b71a1a, type: 3}
       propertyPath: 'startingItems.Array.data[1]'
       value: 
@@ -21390,6 +21394,7 @@ GameObject:
   - component: {fileID: 813918343}
   - component: {fileID: 813918342}
   - component: {fileID: 813918341}
+  - component: {fileID: 813918344}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -21454,6 +21459,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &813918344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813918340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ceb65eb083b5014b8fbbcab427cda8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageVignette: {fileID: 2100000, guid: b4888a4ce0672e843ad522af768355da, type: 2}
+  highHealthPower: 10
+  midHealthPower: 3.2
+  lowHealthPower: 1.6
+  smoothSpeed: 5
 --- !u!1 &814575777
 GameObject:
   m_ObjectHideFlags: 0

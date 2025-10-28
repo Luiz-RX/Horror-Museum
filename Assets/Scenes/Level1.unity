@@ -5,7 +5,7 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
+    smallestOccluder: 0.1
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: 00000000000000000000000000000000
@@ -15318,8 +15318,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.055
-  m_fontSizeBase: 0.055
+  m_fontSize: 0.17
+  m_fontSizeBase: 0.17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16380,7 +16380,7 @@ RectTransform:
   m_GameObject: {fileID: 639693133}
   m_LocalRotation: {x: 0.49999985, y: 0.5000002, z: 0.50000024, w: 0.49999976}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.8702283, y: 32.563835, z: 64.157646}
+  m_LocalScale: {x: 6.8702283, y: 6.870228, z: 64.157646}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 592425395}
@@ -16389,7 +16389,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -1.1028881, y: 0}
-  m_SizeDelta: {x: 0.23, y: 0.05}
+  m_SizeDelta: {x: 0.23, y: 0.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639693135
 MonoBehaviour:
@@ -18019,10 +18019,10 @@ RectTransform:
   - {fileID: 480362901}
   m_Father: {fileID: 1619444794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -122.5469, y: -332.06458}
-  m_SizeDelta: {x: -315.3737, y: -212.7252}
+  m_AnchorMin: {x: 0.067, y: 0}
+  m_AnchorMax: {x: 0.80516666, y: 0.53800005}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &698059448
 AudioSource:
@@ -18172,8 +18172,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c6bf72ed0683d74eb57b5ad1dd5c495, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 25f0e9b6da65fc64d9716db6d441848d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -28106,7 +28106,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2014291637}
+      - m_Target: {fileID: 1841700236}
         m_TargetAssemblyTypeName: OpenSettingsMenu, Assembly-CSharp
         m_MethodName: EnableSettingsUI
         m_Mode: 1
@@ -53053,6 +53053,52 @@ Transform:
   - {fileID: 2112768491}
   m_Father: {fileID: 110833353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1841700235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841700237}
+  - component: {fileID: 1841700236}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1841700236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841700235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec0a792fbeec004fb466517018a4798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 545877829}
+  isPaused: 0
+--- !u!4 &1841700237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841700235}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846918961
 GameObject:
   m_ObjectHideFlags: 0
@@ -62974,7 +63020,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014291636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eec0a792fbeec004fb466517018a4798, type: 3}
   m_Name: 
@@ -65164,7 +65210,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2014291637}
+      - m_Target: {fileID: 1841700236}
         m_TargetAssemblyTypeName: OpenSettingsMenu, Assembly-CSharp
         m_MethodName: UnpauseGame
         m_Mode: 1
@@ -67423,7 +67469,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071069, y: 0.0000000018626451, z: -0, w: 0.70710677}
   m_LocalPosition: {x: -0.05781156, y: -0.07893181, z: 0.11163511}
-  m_LocalScale: {x: 0.015586609, y: 0.026199995, z: 0.027023846}
+  m_LocalScale: {x: 0.015586609, y: 0.026199995, z: 0.02619999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 639693134}
@@ -72450,6 +72496,7 @@ SceneRoots:
   - {fileID: 1669664066}
   - {fileID: 1321189638}
   - {fileID: 757642781}
+  - {fileID: 1841700237}
   - {fileID: 1934259424}
   - {fileID: 353373223}
   - {fileID: 1255975716}

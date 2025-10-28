@@ -51473,6 +51473,14 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1142143121}
+    - target: {fileID: 6261076373846910377, guid: 79368a155026622499c627cb74b4d377, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261076373846910377, guid: 79368a155026622499c627cb74b4d377, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[2].Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51483,6 +51491,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4248256133326501490, guid: 79368a155026622499c627cb74b4d377, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1803312158}
+    - targetCorrespondingSourceObject: {fileID: 4248256133326501490, guid: 79368a155026622499c627cb74b4d377, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1803312165}
   m_SourcePrefab: {fileID: 100100000, guid: 79368a155026622499c627cb74b4d377, type: 3}
 --- !u!114 &1803312150 stripped
 MonoBehaviour:
@@ -51524,6 +51535,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6a1e11025f6274099d95ec5b391cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1803312165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146626460}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89875cdc57c54474a8a74efd9b2a3b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScanRecursively: 1
+  SuppressInputWhileBlending: 1
+  IgnoreTimeScale: 0
+  m_ControllerManager:
+    Controllers:
+    - Name: Look Orbit X
+      Owner: {fileID: 1803312150}
+      Enabled: 1
+      Input:
+        LegacyInput: MoveCamera
+        LegacyGain: 100
+        CancelDeltaTime: 0
+      InputValue: 0
+      Driver:
+        AccelTime: 0.2
+        DecelTime: 0.2
+    - Name: Look Orbit Y
+      Owner: {fileID: 1803312150}
+      Enabled: 0
+      Input:
+        LegacyInput: Mouse Y
+        LegacyGain: -100
+        CancelDeltaTime: 0
+      InputValue: 0
+      Driver:
+        AccelTime: 0.2
+        DecelTime: 0.2
+    - Name: Orbit Scale
+      Owner: {fileID: 1803312150}
+      Enabled: 0
+      Input:
+        LegacyInput: MoveCamera
+        LegacyGain: -100
+        CancelDeltaTime: 0
+      InputValue: 0
+      Driver:
+        AccelTime: 0
+        DecelTime: 0
 --- !u!1 &1803865064
 GameObject:
   m_ObjectHideFlags: 0

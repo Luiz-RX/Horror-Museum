@@ -9,6 +9,8 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textMeshProUGUI;
     public RectTransform dialoguePanel; // ← el panel que vibra
 
+    bool hasPlayed = false;
+
     [Header("Dialogue Settings")]
     public string[] lines;
     public float textSpeed = 0.05f;
@@ -122,8 +124,12 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator EndDialogue()
     {
-        audioSource.PlayOneShot(walkieStop, volume);
-        yield return new WaitForSeconds(1f);
-        gameObject.SetActive(false);
+        if (!hasPlayed) {
+            hasPlayed = true;
+            audioSource.PlayOneShot(walkieStop, volume);
+            yield return new WaitForSeconds(1f);
+            gameObject.SetActive(false);
+        }
+        
     }
 }

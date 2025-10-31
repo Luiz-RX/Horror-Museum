@@ -622,6 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5628317527280928611}
   - component: {fileID: 1520900108524021719}
+  - component: {fileID: 5164962565418558126}
   m_Layer: 0
   m_Name: AttackColl
   m_TagString: Untagged
@@ -665,6 +666,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.32
   m_Center: {x: 0, y: 2, z: 1.49}
+--- !u!114 &5164962565418558126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144573618215474964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe1e5715d60767459d2f768e47bd9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &2243645247841033731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,11 +1132,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5799207863385367479}
   - component: {fileID: 6483054254769869492}
-  - component: {fileID: 833768065807978198}
-  - component: {fileID: 458353575919314895}
   - component: {fileID: 2384815070453013474}
+  - component: {fileID: 458353575919314895}
+  - component: {fileID: 833768065807978198}
   - component: {fileID: 6487167075119371485}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Momia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,8 +1153,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.75, y: 0.167, z: 43.62}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 63419705591843960}
   - {fileID: 3716192754108233759}
@@ -1169,40 +1183,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &833768065807978198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3678634390519902445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2707bb249e67354b9900786ed0389b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackColl: {fileID: 2144573618215474964}
---- !u!114 &458353575919314895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3678634390519902445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25cb7eeed0fa325458facf55d11919f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canMove: 1
-  roomName: 
-  attackRange: 1.5
-  flashColor: {r: 1, g: 1, b: 1, a: 0.70980394}
-  flashTime: 0.2
-  skinnedMeshRenderer: {fileID: 0}
-  material: []
-  attackSounds: []
-  playerInRoom: 0
 --- !u!195 &2384815070453013474
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1225,6 +1205,42 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &458353575919314895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3678634390519902445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cb7eeed0fa325458facf55d11919f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 1
+  roomName: 
+  attackRange: 1.5
+  flashColor: {r: 1, g: 1, b: 1, a: 0.70980394}
+  flashTime: 0.2
+  skinnedMeshRenderer: {fileID: 0}
+  material: []
+  attackSounds:
+  - {fileID: 8300000, guid: b6e3d7a425c41734191afeddf0f1cea1, type: 3}
+  - {fileID: 8300000, guid: 717f6ba990baedf48936b906e9371b97, type: 3}
+  playerInRoom: 0
+--- !u!114 &833768065807978198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3678634390519902445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2707bb249e67354b9900786ed0389b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackColl: {fileID: 2144573618215474964}
 --- !u!136 &6487167075119371485
 CapsuleCollider:
   m_ObjectHideFlags: 0

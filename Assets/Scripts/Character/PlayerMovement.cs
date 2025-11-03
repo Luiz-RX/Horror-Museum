@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public ItemObject startingBullets;
     [SerializeField] AudioClip pickupItemSound;
 
-    
+    public GameObject pickupUI;
+    public TextMeshProUGUI pickupText;
     
 
     
@@ -64,12 +67,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("MoveY", 0);
             return;
         }
-        // Detectar entrada de movimiento (W/S)
-        float moveDirection = Input.GetAxis("Vertical"); // W (1) / S (-1)
+        
+        float moveDirection = Input.GetAxis("Vertical"); 
 
         animator.SetFloat("MoveY", moveDirection);
 
-        // Determinar velocidad en función de la dirección
+        
         float currentSpeed = (moveDirection > 0) ? forwardSpeed : backwardSpeed;
 
         Vector3 move = transform.forward * moveDirection * currentSpeed * Time.deltaTime;
@@ -83,8 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
        
 
-        // Rotación izquierda / derecha (A/D)
-        float rotation = Input.GetAxis("Horizontal"); // A (-1) / D (1)
+        
+        float rotation = Input.GetAxis("Horizontal"); 
         transform.Rotate(Vector3.up * rotation * rotationSpeed * Time.deltaTime);
 
         if(Input.GetKeyDown(KeyCode.E) && canInteract) 
@@ -102,10 +105,20 @@ public class PlayerMovement : MonoBehaviour
                 }
                 Destroy(item.gameObject);
                 SoundFXManager.Instance.PlaySoundFXClip(pickupItemSound, this.transform, 1f);
+                //PickupUI Coroutine
+                pickupText.text = "Picked up " +item.item;
+                StartCoroutine(ActivatePickupUI());
             }
         }
 
        
+    }
+
+    public IEnumerator ActivatePickupUI()
+    {
+        pickupUI.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        pickupUI.SetActive(false);
     }
 
     public void PlayRandomStepSound()

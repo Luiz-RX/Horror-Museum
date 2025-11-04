@@ -31,6 +31,7 @@ public class Dialogue : MonoBehaviour
     private int index;
     private Vector3 originalPos;
     private Image panelImage;
+    [SerializeField] GameObject skipUI;
 
     void Start()
     {
@@ -65,6 +66,7 @@ public class Dialogue : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         panelImage.enabled = true;
+        skipUI.SetActive(true);
         audioSource.PlayOneShot(walkieStart, volume);
         yield return new WaitForSeconds(1f);
         index = 0;
@@ -128,6 +130,7 @@ public class Dialogue : MonoBehaviour
             hasPlayed = true;
             audioSource.PlayOneShot(walkieStop, volume);
             yield return new WaitForSeconds(1f);
+            skipUI.SetActive(false);
             gameObject.SetActive(false);
         }
         

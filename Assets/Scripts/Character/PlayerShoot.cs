@@ -36,10 +36,12 @@ public class PlayerShoot : MonoBehaviour
 
     bool hasAimedFirstTime;
     bool hasUnaimedFirstTime;
+    bool hasReloadedFirstTime;
     bool hasOpenedInventoryFirstTime;
 
     public GameObject aimTutorialUI;
     public GameObject inventoryTutorialUI;
+    public GameObject reloadTutorialUI;
     public GameObject WASDAimTutorialUI;
     
 
@@ -122,6 +124,11 @@ public class PlayerShoot : MonoBehaviour
         {
             if (Input.GetButtonDown("Reload") && !isReloading && ammo.ammo < 12 && ammo.extraAmmo != 0)
             {
+                if (!hasReloadedFirstTime)
+                {
+                    hasReloadedFirstTime = true;
+                    reloadTutorialUI.SetActive(false);
+                }
                 rig.weight = 0f;
                 isReloading = true;
                 anim.SetTrigger("Reload");

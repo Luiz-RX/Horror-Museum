@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(item.gameObject);
                 SoundFXManager.Instance.PlaySoundFXClip(pickupItemSound, this.transform, 1f);
                 //PickupUI Coroutine
-                pickupText.text = "Picked up " +item.item;
+                pickupText.text = "Picked up " +item.item.name;
                 StartCoroutine(ActivatePickupUI());
             }
         }
